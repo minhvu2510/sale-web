@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="theme-container no-sidebar" v-bind:class="{'sidebar-open': isActive}">
     <header class="navbar shadow">
-      <div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div>
+      <div class="sidebar-button" @click="myFilter()"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div>
       <div class="con-btns-header">
         <a class="home-link router-link-exact-active router-link-active">
           <div class="con-logo">
@@ -48,7 +48,7 @@
         </div>
       </div>
       <div class="con-redes-download">
-        <vs-input color="rgb(91, 60, 196)"  icon="search" placeholder=""/>
+        <vs-input v-bind:onclick="myFilter" color="rgb(91, 60, 196)"  icon="search" placeholder=""/>
         <!--<div class="con-btn-apps">-->
           <!--<button title="Lusaxweb Apps" class="btn-apps"><i click="function(){}" class="vs-icon notranslate icon-scale material-icons null">apps</i></button> <div class="con-ul"><ul><li><a title="Vuesax" target="_blank" href="https://lusaxweb.github.io/vuesax/"><img src="/vuesax/apps/vuesax.png" alt=""></a></li> <li><a title="DevAwesome" target="_blank" href="https://lusaxweb.github.io/devAwesome/#/"><img src="/vuesax/apps/devawesome.png" alt=""></a></li> <li><a title="Vue-share" target="_blank" href="https://lusaxweb.github.io/vue-share/"><img src="/vuesax/apps/vueshare.png" alt=""></a></li> <li><a title="Vuenut" target="_blank" href="https://lusaxweb.github.io/vuenut.org/"><img src="/vuesax/apps/vuenut.png" alt=""></a></li> <li><a title="Lusaxweb" target="_blank" href="https://lusaxweb.net"><img src="/vuesax/apps/lusaxweb.png" alt=""></a></li></ul></div>-->
         <!--</div>-->
@@ -56,30 +56,67 @@
         <a target="_blank" title="@vuesax" href="https://twitter.com/vuesax"><i class="vs-icon notranslate icon-scale flaticon-github twitterx material-icons null"></i></a>
       </div>
     </header>
-    <div class="con-home vs-component">
-      <vs-input icon-after="true" label-placeholder="icon-after" icon="mode_edit" placeholder="Nombre" />
-      <vs-button color="primary" type="filled">Primary</vs-button>
-      <vs-button color="success" type="filled">Success</vs-button>
-      <vs-button color="danger" type="filled">Danger</vs-button>
-      <vs-button color="warning" type="filled">Warning</vs-button>
-      <vs-button color="dark" type="filled">Dark</vs-button>
-      <vs-button color="rgb(134, 4, 98)" type="filled">RGB</vs-button>
-      <vs-button disabled type="filled">Disabled</vs-button>
-      <vs-button color="primary" type="filled" to="/components/list.html">Router</vs-button>
-      <vs-input icon-after="true" label-placeholder="icon-after" icon="mode_edit" placeholder="Nombre" v-model="value2"/>
-      <vs-input icon="add" label-placeholder="Label-placeholder" v-model="value3"/>
-      <vs-input icon-after="true"  icon="shopping_cart" label-placeholder="Label-placeholder" v-model="value4"/>
-      <vs-input disabled="true" icon="error_outline" label-placeholder="icon-disabled" v-model="value5"/>
-      <vs-input icon-after="true" disabled="true" icon="email" label-placeholder="icon-disabled" v-model="value6"/>
-      <vs-input icon-no-border icon="account_circle" label-placeholder="icon-no-border" v-model="value7"/>
-      <!--<div class="logo-g"><img src="https://lusaxweb.github.io/vuesax/vuesax-logo-beta.png" alt="hero"></div>-->
+    <div class="sidebar">
+      <div class="c-sidebar">
+        <div class="sponsor-sidebar">
+          <ul>
+            <li title="Become a Sponsor"><a target="_blank" href="https://www.patreon.com/bePatron?c=1567892"><i class="vs-icon notranslate icon-scale material-icons null">add</i></a></li>
+            <li title="Become a Sponsor"><a target="_blank" href="https://www.patreon.com/bePatron?c=1567892"><i class="vs-icon notranslate icon-scale material-icons null">add</i></a></li>
+            <li title="Become a Sponsor"><a target="_blank" href="https://www.patreon.com/bePatron?c=1567892"><i class="vs-icon notranslate icon-scale material-icons null">add</i></a></li>
+          </ul>
+        </div>
+        <nav class="nav-links">
+          <div class="nav-item"><a data-v-ac54a82c="" href="/vuesax/" class="nav-link">Home</a></div>
+        </nav>
+        <ul class="sidebar-links">
+          <li>
+            <div class="sidebar-group first">
+              <p class="sidebar-heading">
+                <span>Dev</span>
+              </p>
+              <ul class="sidebar-group-items">
+                <li><a href="/vuesax/development/" class="sidebar-link">Getting Started</a></li>
+              </ul>
+            </div>
+          </li>
+
+        </ul>
+      </div>
     </div>
+    <div class="sidebar-map">
+      <div class="con-carbon-noti">
+        <div class="notiads">
+          <div class="sponsor-special">
+            <div class="sponsor-s">
+              <a target="_blank" href="https://www.patreon.com/bePatron?c=1567892">
+                <img src="https://lusaxweb.github.io/vuesax/patreon/06-Vuesax-Diamond-Manuel-Rovira-Luis-Daniel-Rovira-Lusax-Web-Framework-ui-components-Vue-js-nuxt-vue.png" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <vs-button @click="myFilter" color="primary" type="filled">Primary</vs-button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'header'
+  name: 'header',
+  data () {
+    return {
+      isActive: false
+    }
+  },
+
+  methods: {
+    myFilter () {
+      console.log('dmđmdm')
+      this.isActive = !this.isActive
+      console.log(this.isActive)
+      // some code to filter users
+    }
+  }
 }
 </script>
 

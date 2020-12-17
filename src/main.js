@@ -5,8 +5,9 @@ import App from './App'
 import router from './router'
 import Vuesax from 'vuesax'
 import 'material-icons/iconfont/material-icons.css'
-
 import 'vuesax/dist/vuesax.css'
+import VueHorizontalList from 'vue-horizontal-list'
+Vue.use(VueHorizontalList)
 Vue.config.productionTip = false
 Vue.use(Vuesax, {
   // options here
