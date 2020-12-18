@@ -22,6 +22,10 @@
           vs-lg="2" vs-sm="4" vs-xs="12"
         </vs-col>
       </vs-row>
+      <a class="header-cart">
+        <span>Cart</span>
+        <span class="cart-count">2</span>
+      </a>
     </div>
 </template>
 
@@ -110,5 +114,23 @@ export default {
     display: block;
     max-width: 100%;
     height: auto;
+  }
+  .header-cart .cart-count {
+    animation: pulse2 .3s;
+    font-size: 10px;
+    width: 18px;
+    height: 18px;
+    background: #1dbdc0;
+    color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    right: -10px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 </style>

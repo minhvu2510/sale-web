@@ -1,5 +1,5 @@
 <template>
-  <div class="theme-container no-sidebar" v-bind:class="{'sidebar-open': isActive}">
+  <div class="theme-container" v-bind:class="{'sidebar-open': isActive}">
     <header class="navbar shadow">
       <div class="sidebar-button" @click="myFilter()"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div>
       <div class="con-btns-header">
@@ -48,10 +48,15 @@
         </div>
       </div>
       <div class="con-redes-download">
-        <vs-input v-bind:onclick="myFilter" color="rgb(91, 60, 196)"  icon="search" placeholder=""/>
-        <!--<div class="con-btn-apps">-->
-          <!--<button title="Lusaxweb Apps" class="btn-apps"><i click="function(){}" class="vs-icon notranslate icon-scale material-icons null">apps</i></button> <div class="con-ul"><ul><li><a title="Vuesax" target="_blank" href="https://lusaxweb.github.io/vuesax/"><img src="/vuesax/apps/vuesax.png" alt=""></a></li> <li><a title="DevAwesome" target="_blank" href="https://lusaxweb.github.io/devAwesome/#/"><img src="/vuesax/apps/devawesome.png" alt=""></a></li> <li><a title="Vue-share" target="_blank" href="https://lusaxweb.github.io/vue-share/"><img src="/vuesax/apps/vueshare.png" alt=""></a></li> <li><a title="Vuenut" target="_blank" href="https://lusaxweb.github.io/vuenut.org/"><img src="/vuesax/apps/vuenut.png" alt=""></a></li> <li><a title="Lusaxweb" target="_blank" href="https://lusaxweb.net"><img src="/vuesax/apps/lusaxweb.png" alt=""></a></li></ul></div>-->
-        <!--</div>-->
+        <vs-chip transparent color="danger">
+          <vs-avatar icon="shopping_cart" color="#5b3cc4"/>
+            1
+        </vs-chip>
+        <a href="https://github.com/lusaxweb/vuesax/releases/download/v3.8.61/vuesax-3.8.61.zip" class="btn-download">
+          <i class="vs-icon notranslate icon-scale material-icons null">face</i><span>Log in</span></a>
+        <a href="https://github.com/lusaxweb/vuesax/releases/download/v3.8.61/vuesax-3.8.61.zip" class="btn-download">
+          <i class="vs-icon notranslate icon-scale material-icons null">link</i><span>Sing up</span></a>
+        <!--<vs-input v-bind:onclick="myFilter" color="rgb(91, 60, 196)"  icon="search" placeholder=""/>-->
         <a title="Liên hệ" href="https://github.com/lusaxweb/vuesax" target="_blank" rel="noopener noreferrer" class="repo-link flaticon-facebook"></a>
         <a target="_blank" title="@vuesax" href="https://twitter.com/vuesax"><i class="vs-icon notranslate icon-scale flaticon-github twitterx material-icons null"></i></a>
       </div>
@@ -60,7 +65,11 @@
       <div class="c-sidebar">
         <div class="sponsor-sidebar">
           <ul>
-            <li title="Become a Sponsor"><a target="_blank" href="https://www.patreon.com/bePatron?c=1567892"><i class="vs-icon notranslate icon-scale material-icons null">add</i></a></li>
+            <li title="Become a Sponsor">
+              <a target="_blank" href="https://www.patreon.com/bePatron?c=1567892">
+                <i class="vs-icon notranslate icon-scale material-icons null">add</i>
+              </a>
+            </li>
             <li title="Become a Sponsor"><a target="_blank" href="https://www.patreon.com/bePatron?c=1567892"><i class="vs-icon notranslate icon-scale material-icons null">add</i></a></li>
             <li title="Become a Sponsor"><a target="_blank" href="https://www.patreon.com/bePatron?c=1567892"><i class="vs-icon notranslate icon-scale material-icons null">add</i></a></li>
           </ul>
@@ -84,6 +93,11 @@
       </div>
     </div>
     <div class="sidebar-map">
+      <div class="c-sidebar-map">
+        <ul class="sidebar-links-map">
+          <vs-avatar color="success" icon="shopping_cart" badge-color="rgb(140, 23, 164)" badge="10" />
+        </ul>
+      </div>
       <div class="con-carbon-noti">
         <div class="notiads">
           <div class="sponsor-special">
@@ -91,12 +105,18 @@
               <a target="_blank" href="https://www.patreon.com/bePatron?c=1567892">
                 <img src="https://lusaxweb.github.io/vuesax/patreon/06-Vuesax-Diamond-Manuel-Rovira-Luis-Daniel-Rovira-Lusax-Web-Framework-ui-components-Vue-js-nuxt-vue.png" alt="">
               </a>
+              <br/>
+              <a target="_blank" href="https://www.patreon.com/bePatron?c=1567892">
+                <img src="https://lusaxweb.github.io//vuesax/patreon/01-Vuesax-Gold-Manuel-Rovira-Luis-Daniel-Rovira-Lusax-Web-Framework-ui-components-Vue-js-nuxt-vuepre.png" alt="">
+              </a>
+              <br/>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <vs-button @click="myFilter" color="primary" type="filled">Primary</vs-button>
+    <br/>
+
   </div>
 </template>
 
@@ -123,4 +143,22 @@ export default {
 <style scoped>
 @import "../assets/0.styles.723347b0.css";
 @import "../assets/icon.css";
+.header-cart .cart-count {
+  animation: pulse2 .3s;
+  font-size: 10px;
+  width: 18px;
+  height: 18px;
+  background: #1dbdc0;
+  color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  right: -10px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
 </style>
