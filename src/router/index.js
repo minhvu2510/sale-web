@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import header from '@/header/header'
-import home from '@/home/index'
+import home from '@/home/home.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -9,19 +9,15 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: header,
-      children: [
-        {
-          path: 'mvp',
-          component: home,
-          name: 'Home'
-          // meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
-        }
-      ]
+      component: home
     },
     {
       path: '/home',
       component: home
+    },
+    {
+      path: '/header',
+      component: header
     }
     // {
     //   path: '/documentation',
