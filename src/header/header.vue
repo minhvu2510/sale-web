@@ -125,18 +125,28 @@
       <!--</div>-->
 
     </div>
-    <div>
-      <home></home>
+    <div class="page">
+      <div class="content content-pagex">
+        <div style="padding-bottom: 5px">
+          <home></home>
+        </div>
+      </div>
+    </div>
+    <div class="page">
+      <home style="margin-top: 490px"></home>
+      <footerWeb></footerWeb>
     </div>
   </div>
 </template>
 
 <script>
 import home from '@/home/home.vue'
+import footerWeb from '@/components/footer/footerWeb.vue'
 export default {
   name: 'header',
   components: {
-    home
+    home,
+    footerWeb
     // HelloWorld
   },
   data () {
