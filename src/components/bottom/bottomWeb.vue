@@ -2,7 +2,7 @@
 
   <div>
     <footer class="footer_new" style="">
-      <div class="content-pagex" style="margin-top: 12px;margin-top: 20px">
+      <div class="content-pagex">
         <vs-row vs-w="12">
           <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="3" vs-sm="3" vs-xs="6" >
             <div >
@@ -58,7 +58,7 @@
                 <div >
                   <li  class="item_footer title" style="color: #1f1628">POLICIES</li>
                   <li class="item_footer">
-                    <a href="https://github.com/minhvu2510">Cancellations & Modifications</a>
+                    <a href="https://github.com/minhvu2510">Cancellations </a>
                   </li>
                   <li class="item_footer">
                     <a href="https://github.com/minhvu2510">Return & refund</a>
@@ -73,7 +73,7 @@
                     <a href="https://github.com/minhvu2510">Privacy Policy</a>
                   </li>
                   <li class="item_footer">
-                    <a href="https://github.com/minhvu2510">Rental Terms & Conditions</a>
+                    <a href="https://github.com/minhvu2510">Rental Terms</a>
                   </li>
                 </div>
               </div>
@@ -135,12 +135,12 @@ export default {
 
 <style scoped>
   .footer_new {
-    width: 100%;
+    /*width: 100%;*/
     height: auto;
     background: #f5f7fa;
     position: relative;
     z-index: 1;
-    margin-top: 10px;
+    margin-top: 14px;
     display: block;
   }
   .item_footer {
@@ -148,7 +148,7 @@ export default {
     color: #5a3cc4;;
     font-size: 12px;
     font-weight: 400;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding-top: 6px;
+    padding-bottom: 6px;
   }
 </style>

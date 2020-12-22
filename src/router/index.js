@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import header from '@/header/header'
-import home from '@/home/home.vue'
-import footerWeb from '@/components/footer/footerWeb.vue'
+// import carousel from '@/carousel/carousel.vue'
+import footerWeb from '@/components/bottom/bottomWeb.vue'
+import gridView from '@/gridView/gridView.vue'
+import mainContent from '@/mainContent/mainContent.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -10,15 +12,19 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: home
+      component: mainContent
     },
     {
       path: '/header',
       component: header
     },
     {
-      path: '/footer',
+      path: '/bottom',
       component: footerWeb
+    },
+    {
+      path: '/gridView',
+      component: gridView
     }
     // {
     //   path: '/documentation',
@@ -26,7 +32,7 @@ export default new Router({
     //   children: [
     //     {
     //       path: 'index',
-    //       component: () => import('@/home/index'),
+    //       component: () => import('@/carousel/index'),
     //       name: 'Documentation',
     //       meta: { title: 'Documentation', icon: 'documentation', affix: true }
     //     }

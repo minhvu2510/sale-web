@@ -1,12 +1,11 @@
 <template>
     <div>
-      <p>minhvu</p>
-      <div style="padding-left: 20px">
+      <div style="padding-left: 10px;padding-right: 10px">
         <header></header>
       </div>
       <div id="slideHome">
         <div>
-          <h2>Image Four</h2>
+          <h2 style="text-align: left">Xem gần đây</h2>
           <vue-horizontal-list :items="items" :options="options">
             <template v-slot:default="{ item }">
               <div>
@@ -25,6 +24,9 @@
               </div>
             </template>
           </vue-horizontal-list>
+        </div>
+        <div style="text-align: right">
+          <vs-button color="primary" type="flat">Xem thêm ....</vs-button>
         </div>
       </div>
     </div>
@@ -134,7 +136,7 @@ export default {
           { start: 768, end: 992, size: 3 },
           { size: 4 }
         ],
-        autoplay: { play: true, repeat: true, speed: 3000}
+        autoplay: {play: true, repeat: true, speed: 3000}
       }
     }
   }
@@ -214,7 +216,7 @@ export default {
     max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
-    padding: 80px 24px 80px 40px;
+    padding: 50px 24px 50px 40px;
   }
   p {
     margin-top: 6px;

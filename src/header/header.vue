@@ -90,6 +90,10 @@
                 <ul class="sidebar-group-items">
                   <li><a href="/vuesax/development/" class="sidebar-link">Getting Started</a></li>
                 </ul>
+                <div class="">
+                  <vs-slider step=10 v-model="value1"/>
+                  <vs-slider ticks step=25 v-model="value2"/>
+                </div>
               </div>
             </li>
 
@@ -97,26 +101,39 @@
         </div>
       </div>
       <div class="sidebar-map">
+        <div class="sidebar-links-map">
+          <div style="padding: 10px 30px 10px 3px;border-left: 1px;margin: 10px 5px 10px 5px">
+            <vs-slider step=10 v-model="value1"/>
+            <vs-slider ticks step=25 v-model="value2"/>
+            <div class="tip custom-block"></div>
+            <div class="tip custom-block" style="width: 100%">
+              <p class="custom-block custom-block-title">Giá</p>
+              <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+              <!--<vs-slider step=10 v-model="value1"/>-->
+
+            </div>
+          </div>
+        </div>
         <!--<div class="c-sidebar-map">-->
         <!--<ul class="sidebar-links-map">-->
         <!--<vs-avatar color="success" icon="shopping_cart" badge-color="rgb(140, 23, 164)" badge="10" />-->
         <!--</ul>-->
         <!--</div>-->
         <div class="con-carbon-noti">
-          <div class="notiads">
-            <div class="sponsor-special">
-              <div class="sponsor-s">
-                <a target="_blank" href="https://www.patreon.com/bePatron?c=1567892">
-                  <img src="https://lusaxweb.github.io/vuesax/patreon/06-Vuesax-Diamond-Manuel-Rovira-Luis-Daniel-Rovira-Lusax-Web-Framework-ui-components-Vue-js-nuxt-vue.png" alt="">
-                </a>
-                <br/>
-                <a target="_blank" href="https://www.patreon.com/bePatron?c=1567892">
-                  <img src="https://lusaxweb.github.io//vuesax/patreon/01-Vuesax-Gold-Manuel-Rovira-Luis-Daniel-Rovira-Lusax-Web-Framework-ui-components-Vue-js-nuxt-vuepre.png" alt="">
-                </a>
-                <br/>
-              </div>
-            </div>
-          </div>
+          <!--<div class="notiads">-->
+            <!--<div class="sponsor-special">-->
+              <!--<div class="sponsor-s">-->
+                <!--<a target="_blank" href="https://www.patreon.com/bePatron?c=1567892">-->
+                  <!--<img src="https://lusaxweb.github.io/vuesax/patreon/06-Vuesax-Diamond-Manuel-Rovira-Luis-Daniel-Rovira-Lusax-Web-Framework-ui-components-Vue-js-nuxt-vue.png" alt="">-->
+                <!--</a>-->
+                <!--<br/>-->
+                <!--<a target="_blank" href="https://www.patreon.com/bePatron?c=1567892">-->
+                  <!--<img src="https://lusaxweb.github.io//vuesax/patreon/01-Vuesax-Gold-Manuel-Rovira-Luis-Daniel-Rovira-Lusax-Web-Framework-ui-components-Vue-js-nuxt-vuepre.png" alt="">-->
+                <!--</a>-->
+                <!--<br/>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
         </div>
       </div>
       <br/>
@@ -128,25 +145,28 @@
     <div class="page">
       <div class="content content-pagex">
         <div style="padding-bottom: 5px">
-          <home></home>
+          <grid-view></grid-view>
+          <!--<home></home>-->
         </div>
       </div>
     </div>
     <div class="page">
-      <home style="margin-top: 490px"></home>
+      <home></home>
       <footerWeb></footerWeb>
     </div>
   </div>
 </template>
 
 <script>
-import home from '@/home/home.vue'
-import footerWeb from '@/components/footer/footerWeb.vue'
+import home from '@/carousel/carousel.vue'
+import footerWeb from '@/components/bottom/bottomWeb.vue'
+import gridView from '@/gridView/gridView.vue'
 export default {
   name: 'header',
   components: {
     home,
-    footerWeb
+    footerWeb,
+    gridView
     // HelloWorld
   },
   data () {
