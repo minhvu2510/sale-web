@@ -2776,10 +2776,11 @@ div[id*=carbonads] span {
  align-items:flex-start;
  -webkit-box-pack:center;
  -ms-flex-pack:center;
- justify-content:center
+ justify-content:center;
+  width:7.5rem
 }
 .sidebar-map .sidebar-links-map {
- width:7.5rem
+ width:16.5rem
 }
 .sidebar-map .sidebar-links-map .sidebar-group-items>li>a {
  display:none
@@ -3538,7 +3539,7 @@ body {
  color:#5b5777
 }
 .page {
- padding-left:15rem;
+ padding-left:20rem;
  margin-right:16.5rem;
  border-right:1px solid rgba(0,0,0,.05)
 }
@@ -3569,7 +3570,7 @@ body {
 .sidebar {
  font-size:14px;
  background-color:#f5f7fb;
- width:15rem;
+ width:20rem;
  position:fixed;
  z-index:1010;
  margin:0;
