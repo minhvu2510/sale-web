@@ -97,55 +97,45 @@
                 <vs-alert @click="tipSidebar=!tipSidebar" :active="tipSidebar" icon="cancel" >
                   <span>Sử dụng bộ lọc để tìm kiếm dễ dàng hơn <b>!</b></span>
                 </vs-alert>
-                <div class="content_side" v-bind:class="{'style-select': active_sidebar.cost} " @click="clickSidebar('cost')">
+                <div class="content_side" v-bind:class="{'style-select': active_sidebar.cost} ">
                   <div style="margin-top: 10px">
                     <strong>Khoảng giá</strong>
                   </div>
-                  <div class="centerx">
+                  <div class="centerx" @click="clickSidebar('cost')">
                     <!--<vs-input class="inputx" placeholder="Thấp nhất" v-model="value1"/>-->
-                    <vs-input label-placeholder="Thấp nhất" v-model="suggess_cost.value_low"/>
+                    <vs-input label-placeholder="Thấp nhất" v-model="select_cost.value_low"/>
                   </div>
-                  <div v-show="suggess_cost.low" class="centerx" style="padding-top: 10px" slot="demo">
-                    <vs-chip transparent color="primary" v-for="cost in suggess_value" :key="cost" @click="suggess_cost.value_low = cost">
-                      {{cost}}
+                  <div v-show="suggess_cost.low" class="centerx" style="padding-top: 10px; cursor: pointer" slot="demo">
+                    <vs-chip style="cursor: pointer" transparent color="primary" v-for="cost in suggess_value" :key="cost" @click="setCost('low',cost)">
+                      <div @click="setCost('low',cost)">{{cost}}</div>
                     </vs-chip>
                   </div>
                   <div class="centerx" style="padding-top: 10px">
-                    <vs-input label-placeholder="Cao nhất" v-model="value4"/>
+                    <vs-input label-placeholder="Cao nhất" v-model="select_cost.value_hight"/>
                   </div>
-                  <div v-show="suggess_cost.hight" class="centerx" style="padding-top: 5px" slot="demo">
-                    <vs-chip transparent color="primary" v-for="cost in suggess_value" :key="cost">
-                      {{cost}}
+                  <div v-show="suggess_cost.hight" class="centerx" style="padding-top: 5px; cursor: pointer" slot="demo">
+                    <vs-chip transparent color="primary" v-for="cost in suggess_value" :key="cost" @click="setCost('hight',cost)">
+                      <div @click="setCost('hight',cost)">{{cost}}</div>
                     </vs-chip>
                   </div>
                   <div style="padding-top: 10px;padding-bottom: 10px" class="price-cover">
-                    <vs-button type="line" class="price-cover">Áp dụng</vs-button>
+                    <vs-button @click="filter_item('cost')" type="line" class="price-cover">Áp dụng</vs-button>
                   </div>
                 </div>
               </div>
-              <div style="text-align: left"  class="content_side" v-bind:class="{'style-select': active_sidebar.type}" @click="clickSidebar('type')">
+              <div style="text-align: left"  class="content_side" v-bind:class="{'style-select': active_sidebar.type}">
                 <div style="text-align: center">
                   <strong>Loại</strong>
                 </div>
                 <div style="padding-left: 20px">
-                  <input type="checkbox" name="vehicle1" value="Bike">
-                  <label for="vehicle1"> Refrigerators & Freezers (5)</label><br>
-
-                  <input type="checkbox"  name="vehicle1" value="Bike">
-                  <label for="vehicle1"> Televisions (4)</label><br>
-
-                  <input type="checkbox"  name="vehicle1" value="Bike">
-                  <label for="vehicle1"> Water & Air Purifiers (3)</label><br>
-
-                  <input type="checkbox"  name="vehicle1" value="Bike">
-                  <label for="vehicle1"> Washing Machines (2)</label><br>
-
-                  <input type="checkbox"  name="vehicle1" value="Bike">
-                  <label for="vehicle1"> Air Conditioners (2)</label><br>
+                  <div v-for="item in type_item" :key="item.title" @click="clickSidebar('type')">
+                    <input type="checkbox" name="vehicle1" v-model="item.status">
+                    <label for="vehicle1"> {{item.title}}</label><br>
+                  </div>
                 </div>
 
                 <div style="padding-top: 10px;padding-bottom: 10px; text-align: center" class="price-cover">
-                  <vs-button type="line" class="price-cover">Áp dụng</vs-button>
+                  <vs-button type="line" class="price-cover" @click="filter_item('type')">Áp dụng</vs-button>
                 </div>
 
               </div>
@@ -155,19 +145,19 @@
                 </div>
                 <div style="padding-left: 20px">
                   <div>
-                    <label for="">Chỉ tìm khi còn hàng</label>
-                    <vs-switch color="success" v-model="switch2" vs-icon="done"/>
+                    <label for="">Hiển thị khi còn hàng</label>
+                    <vs-switch color="success" v-model="available_item" vs-icon="done"/>
                   </div>
                 </div>
 
                 <div style="padding-top: 10px;padding-bottom: 10px; text-align: center" class="price-cover">
-                  <vs-button type="line" class="price-cover">Áp dụng</vs-button>
+                  <vs-button type="line" class="price-cover" @click="filter_item('available')">Áp dụng</vs-button>
                 </div>
 
               </div>
-              <div>
-                <vs-alert :active="inputValid" color="danger" icon="new_releases" >
-                  <span>the value is <b>invalid</b> you can only enter numbers</span>
+              <div style="position: fixed; bottom: 0px; text-align: center">
+                <vs-alert color="danger" icon="new_releases" >
+                  <span>Phản hồi & hỗ trợ <b>!</b></span>
                 </vs-alert>
               </div>
             </li>
@@ -175,44 +165,6 @@
           </ul>
         </div>
       </div>
-      <!--<div class="sidebar-map">-->
-        <!--<div class="sidebar-links-map">-->
-          <!--<div style="padding: 10px 30px 10px 3px;border-left: 1px;margin: 10px 5px 10px 5px">-->
-            <!--<vs-slider step=10 v-model="value1"/>-->
-            <!--<vs-slider ticks step=25 v-model="value2"/>-->
-            <!--<div class="tip custom-block"></div>-->
-            <!--<div class="tip custom-block" style="width: 400px">-->
-              <!--<p class="custom-block custom-block-title">Giá</p>-->
-              <!--<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>-->
-              <!--<vs-slider step=10 v-model="value1"/>-->
-
-            <!--</div>-->
-            <!--<h1 style="text-align: center">minhvu</h1>-->
-          <!--</div>-->
-          <!--<h1 style="text-align: center">minhvu</h1>-->
-        <!--</div>-->
-        <!--&lt;!&ndash;<div class="c-sidebar-map">&ndash;&gt;-->
-        <!--&lt;!&ndash;<ul class="sidebar-links-map">&ndash;&gt;-->
-        <!--&lt;!&ndash;<vs-avatar color="success" icon="shopping_cart" badge-color="rgb(140, 23, 164)" badge="10" />&ndash;&gt;-->
-        <!--&lt;!&ndash;</ul>&ndash;&gt;-->
-        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-        <!--<div class="con-carbon-noti">-->
-          <!--&lt;!&ndash;<div class="notiads">&ndash;&gt;-->
-            <!--&lt;!&ndash;<div class="sponsor-special">&ndash;&gt;-->
-              <!--&lt;!&ndash;<div class="sponsor-s">&ndash;&gt;-->
-                <!--&lt;!&ndash;<a target="_blank" href="https://www.patreon.com/bePatron?c=1567892">&ndash;&gt;-->
-                  <!--&lt;!&ndash;<img src="https://lusaxweb.github.io/vuesax/patreon/06-Vuesax-Diamond-Manuel-Rovira-Luis-Daniel-Rovira-Lusax-Web-Framework-ui-components-Vue-js-nuxt-vue.png" alt="">&ndash;&gt;-->
-                <!--&lt;!&ndash;</a>&ndash;&gt;-->
-                <!--&lt;!&ndash;<br/>&ndash;&gt;-->
-                <!--&lt;!&ndash;<a target="_blank" href="https://www.patreon.com/bePatron?c=1567892">&ndash;&gt;-->
-                  <!--&lt;!&ndash;<img src="https://lusaxweb.github.io//vuesax/patreon/01-Vuesax-Gold-Manuel-Rovira-Luis-Daniel-Rovira-Lusax-Web-Framework-ui-components-Vue-js-nuxt-vuepre.png" alt="">&ndash;&gt;-->
-                <!--&lt;!&ndash;</a>&ndash;&gt;-->
-                <!--&lt;!&ndash;<br/>&ndash;&gt;-->
-              <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-        <!--</div>-->
-      <!--</div>-->
       <br/>
       <!--<div>-->
       <!--<vs-button @click="myFilter" color="primary" type="border">Primary</vs-button>-->
@@ -221,6 +173,12 @@
     </div>
     <div class="page">
       <div class="content content-pagex">
+        <div style="margin-left: 30px">
+          <vs-chip @click="remove_filter(chip)" transparent color="success" v-for="chip in filter" :key="chip" closable>
+            {{ chip }}
+          </vs-chip>
+
+        </div>
         <div style="padding-bottom: 5px">
           <grid-view></grid-view>
           <!--<home></home>-->
@@ -252,8 +210,13 @@ export default {
       noSideba: false,
       active_sidebar: {'cost': false, 'type': false, 'available': false},
       tipSidebar: true,
-      suggess_cost: {'low': false, 'hight': false,'value_low': ''},
-      suggess_value: ['100k', '200k', '500k', '1000k', '1500k']
+      suggess_cost: {'low': false, 'hight': '', 'value_low': ''},
+      suggess_value: ['100k', '200k', '500k', '1000k', '1500k'],
+      select_cost: {'value_hight': '', 'value_low': ''},
+      filter: [],
+      type_item: [{'title': 'Refrigerators & Freezers (5)', 'status': false}, {'title': 'Televisions (4)', 'status': false}, {'title': 'Water & Air Purifiers (3)', 'status': false},
+        {'title': 'Washing Machines (2)', 'status': false}, {'title': 'Air Conditioners (2)', 'status': false}],
+      available_item: true
     }
   },
 
@@ -288,6 +251,39 @@ export default {
         this.suggess_cost.hight = false
       }
       console.log('anh chi la ke ngoc nhung nho dieu xa voi')
+    },
+    setCost (type, cost) {
+      console.log(cost)
+      if (type === 'low') {
+        var num = Number(parseInt(cost.replace('k', '000'))).toLocaleString('fi-FI')
+        this.select_cost.value_low = num
+      } else {
+        this.select_cost.value_hight = Number(parseInt(cost.replace('k', '000'))).toLocaleString('fi-FI')
+      }
+    },
+    filter_item (type) {
+      if (type === 'cost') {
+        let filCost = this.select_cost.value_low + ' - ' + this.select_cost.value_hight
+        this.filter.push(filCost)
+      }
+      if (type === 'type') {
+        console.log(this.type_item)
+        for (let it in this.type_item) {
+          console.log(it)
+          if (this.type_item[it]['status'] === true) {
+            console.log(this.type_item)
+            console.log(it)
+            this.filter.push(this.type_item[it]['title'])
+          }
+        }
+        // this.filter.push(filCost)
+      }
+      if (type === 'available' && this.available_item === true) {
+        this.filter.push('Available')
+      }
+    },
+    remove_filter (item) {
+      this.filter.splice(this.filter.indexOf(item), 1)
     }
   }
 }
