@@ -79,7 +79,7 @@ export default {
 <style scoped>
   .cardx {
     /*padding: 15px 15px 15px 15px;*/
-    max-width: 250px;
+    max-width: 200px;
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
