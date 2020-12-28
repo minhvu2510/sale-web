@@ -70,16 +70,32 @@
               <!--<vs-image :key="index" src="https://picsum.photos/400/400" />-->
               <li title="Become a Sponsor">
                 <a target="_blank" href="https://www.patreon.com/bePatron?c=1567892">
-                  <i class="vs-icon notranslate icon-scale material-icons null">add</i>
-                  <!--<vs-image :key="index" src="https://picsum.photos/20/20" />-->
+                  <!--<i class="vs-icon notranslate icon-scale material-icons null">add</i>-->
+                  <img :key="index" src="https://cdn.iconscout.com/icon/free/png-512/vue-282497.png" width="40px" height="40px"/>
                 </a>
               </li>
-              <li title="Become a Sponsor"><a target="_blank" href="https://www.patreon.com/bePatron?c=1567892"><i class="vs-icon notranslate icon-scale material-icons null">add</i></a></li>
-              <li title="Become a Sponsor"><a target="_blank" href="https://www.patreon.com/bePatron?c=1567892"><i class="vs-icon notranslate icon-scale material-icons null">add</i></a></li>
+              <li title="Become a Sponsor">
+                <a target="_blank" href="https://www.patreon.com/bePatron?c=1567892">
+                  <!--<i class="vs-icon notranslate icon-scale material-icons null">add</i>-->
+                  <img :key="index" src="https://lusaxweb.github.io/vuesax/patreon/06-Vuesax-Diamond-Manuel-Rovira-Luis-Daniel-Rovira-Lusax-Web-Framework-ui-components-Vue-js-nuxt-vue.png" width="40px" height="40px"/>
+                </a>
+              </li>
+              <li title="Become a Sponsor">
+                <a target="_blank" href="https://www.patreon.com/bePatron?c=1567892">
+                  <!--<i class="vs-icon notranslate icon-scale material-icons null">add</i>-->
+                  <img :key="index" src="https://raw.githubusercontent.com/lusaxweb/vuesax/master/public/vuesax-logo-beta.png" width="40px" height="40px"/>
+                </a>
+              </li>
+              <li title="Become a Sponsor">
+                <a target="_blank" href="https://www.patreon.com/bePatron?c=1567892">
+                  <!--<i class="vs-icon notranslate icon-scale material-icons null">add</i>-->
+                  <img :key="index" src="https://user-images.githubusercontent.com/2678654/32683180-4b968114-c647-11e7-9c0a-2b3c11bf6ac5.png" width="40px" height="40px"/>
+                </a>
+              </li>
             </ul>
           </div>
           <div class="search-box" style="padding-bottom: 5px">
-            <input aria-label="Search" placeholder="Search Components" autocomplete="off" spellcheck="false" value="">
+            <input aria-label="Search" placeholder="Search products" autocomplete="off" spellcheck="false" value="">
           </div>
           <vs-alert @click="tipSidebar=!tipSidebar" :active="tipSidebar" icon="cancel" >
             <span>Sử dụng bộ lọc để tìm kiếm dễ dàng hơn <b>!</b></span>
@@ -102,11 +118,11 @@
                 <!--</div>-->
                 <div class="content_side" v-bind:class="{'style-select': active_sidebar.cost} ">
                   <div style="margin-top: 10px">
-                    <strong>Khoảng giá</strong>
+                    <strong>Price range</strong>
                   </div>
                   <div class="centerx" @click="clickSidebar('cost')">
                     <!--<vs-input class="inputx" placeholder="Thấp nhất" v-model="value1"/>-->
-                    <vs-input label-placeholder="Thấp nhất" v-model="select_cost.value_low"/>
+                    <vs-input label-placeholder="Min" v-model="select_cost.value_low"/>
                   </div>
                   <div v-show="suggess_cost.low" class="centerx" style="padding-top: 10px; cursor: pointer" slot="demo">
                     <vs-chip style="cursor: pointer" transparent color="primary" v-for="cost in suggess_value" :key="cost" @click="setCost('low',cost)">
@@ -114,7 +130,7 @@
                     </vs-chip>
                   </div>
                   <div class="centerx" style="padding-top: 10px">
-                    <vs-input label-placeholder="Cao nhất" v-model="select_cost.value_hight"/>
+                    <vs-input label-placeholder="Max" v-model="select_cost.value_hight"/>
                   </div>
                   <div v-show="suggess_cost.hight" class="centerx" style="padding-top: 5px; cursor: pointer" slot="demo">
                     <vs-chip transparent color="primary" v-for="cost in suggess_value" :key="cost" @click="setCost('hight',cost)">
@@ -122,13 +138,13 @@
                     </vs-chip>
                   </div>
                   <div style="padding-top: 10px;padding-bottom: 10px" class="price-cover">
-                    <vs-button @click="filter_item('cost')" type="line" class="price-cover">Áp dụng</vs-button>
+                    <vs-button @click="filter_item('cost')" type="line" class="price-cover">Apply</vs-button>
                   </div>
                 </div>
               </div>
               <div style="text-align: left"  class="content_side" v-bind:class="{'style-select': active_sidebar.type}">
                 <div style="text-align: center">
-                  <strong>Loại</strong>
+                  <strong>Type of products</strong>
                 </div>
                 <div style="padding-left: 20px">
                   <div v-for="item in type_item" :key="item.title" @click="clickSidebar('type')">
@@ -138,23 +154,23 @@
                 </div>
 
                 <div style="padding-top: 10px;padding-bottom: 10px; text-align: center" class="price-cover">
-                  <vs-button type="line" class="price-cover" @click="filter_item('type')">Áp dụng</vs-button>
+                  <vs-button type="line" class="price-cover" @click="filter_item('type')">Apply</vs-button>
                 </div>
 
               </div>
               <div style="text-align: left"  class="content_side" v-bind:class="{'style-select': active_sidebar.available}" @click="clickSidebar('available')">
                 <div style="text-align: center">
-                  <strong>Còn hàng</strong>
+                  <strong>Available</strong>
                 </div>
                 <div style="padding-left: 20px">
                   <div>
-                    <label for="">Hiển thị khi còn hàng</label>
+                    <label for="">Show products available</label>
                     <vs-switch color="success" v-model="available_item" vs-icon="done"/>
                   </div>
                 </div>
 
                 <div style="padding-top: 10px;padding-bottom: 10px; text-align: center" class="price-cover">
-                  <vs-button type="line" class="price-cover" @click="filter_item('available')">Áp dụng</vs-button>
+                  <vs-button type="line" class="price-cover" @click="filter_item('available')">Apply</vs-button>
                 </div>
 
               </div>
@@ -178,7 +194,7 @@
             <div class="sponsor-special">
               <div style="overflow: auto">
                 <vs-list style="overflow: auto">
-                  <vs-list-header  title="Xem gần đây" color="success"></vs-list-header>
+                  <vs-list-header  title="Highlights" color="success"></vs-list-header>
                   <vs-list-item title="Steve Jobes" subtitle="Top Contributor">
                     <template slot="avatar" style="border-radius: 10px;">
                       <!--<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>-->
@@ -282,7 +298,7 @@
 
               </div>
             </vs-tab>
-            <vs-tab label="furniture">
+            <vs-tab label="Sale off 50%">
               <div>
                 <vs-row>
                   <vs-col vs-type="flex" vs-w="11">
@@ -311,7 +327,7 @@
 
               </div>
             </vs-tab>
-            <vs-tab label="electronics">
+            <vs-tab label="Free ship">
               <div>
 
               </div>

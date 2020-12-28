@@ -5,7 +5,7 @@
       </div>
       <div id="slideHome">
         <div>
-          <h2 style="text-align: left">Xem gần đây</h2>
+          <h2 style="text-align: left">Highlights</h2>
           <vue-horizontal-list :items="items" :options="options">
             <template v-slot:default="{ item }">
               <div>
@@ -26,7 +26,7 @@
           </vue-horizontal-list>
         </div>
         <div style="text-align: right">
-          <vs-button color="primary" type="flat">Xem thêm ....</vs-button>
+          <vs-button color="primary" type="flat">Detail ....</vs-button>
         </div>
       </div>
     </div>
