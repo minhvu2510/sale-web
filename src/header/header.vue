@@ -78,12 +78,18 @@
               <li title="Become a Sponsor"><a target="_blank" href="https://www.patreon.com/bePatron?c=1567892"><i class="vs-icon notranslate icon-scale material-icons null">add</i></a></li>
             </ul>
           </div>
-          <nav class="nav-links">
-            <div class="nav-item"><a data-v-ac54a82c="" href="/vuesax/" class="nav-link">Home</a></div>
-          </nav>
+          <div class="search-box" style="padding-bottom: 5px">
+            <input aria-label="Search" placeholder="Search Components" autocomplete="off" spellcheck="false" value="">
+          </div>
+          <vs-alert @click="tipSidebar=!tipSidebar" :active="tipSidebar" icon="cancel" >
+            <span>Sử dụng bộ lọc để tìm kiếm dễ dàng hơn <b>!</b></span>
+          </vs-alert>
+          <!--<nav class="nav-links">-->
+            <!--<div class="nav-item"><a data-v-ac54a82c="" href="/vuesax/" class="nav-link">Home</a></div>-->
+          <!--</nav>-->
           <ul class="sidebar-links">
             <li>
-              <div class="sidebar-group first">
+              <div class="sidebar-group first" style="margin-top: -15px">
                 <p class="sidebar-heading">
                   <!--<span>Dev</span>-->
                 </p>
@@ -94,9 +100,6 @@
                   <!--<div class="custom-block-title">Tip</div>-->
                   <!--<p>Vuesax uses the <strong>Google Material Icons</strong> font library. For a list of all available icons, visit the official <a href="https://material.io/icons/" target="_blank" rel="noopener noreferrer">Material Icons page<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>.</p>-->
                 <!--</div>-->
-                <vs-alert @click="tipSidebar=!tipSidebar" :active="tipSidebar" icon="cancel" >
-                  <span>Sử dụng bộ lọc để tìm kiếm dễ dàng hơn <b>!</b></span>
-                </vs-alert>
                 <div class="content_side" v-bind:class="{'style-select': active_sidebar.cost} ">
                   <div style="margin-top: 10px">
                     <strong>Khoảng giá</strong>
@@ -169,19 +172,156 @@
       <!--<div>-->
       <!--<vs-button @click="myFilter" color="primary" type="border">Primary</vs-button>-->
       <!--</div>-->
+      <div class="sidebar-map">
+        <div class="con-carbon-noti">
+          <div class="notiads">
+            <div class="sponsor-special">
+              <div style="overflow: auto">
+                <vs-list style="overflow: auto">
+                  <vs-list-header  title="Xem gần đây" color="success"></vs-list-header>
+                  <vs-list-item title="Steve Jobes" subtitle="Top Contributor">
+                    <template slot="avatar" style="border-radius: 10px;">
+                      <!--<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>-->
+                      <img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="75">
+                    </template>
+                  </vs-list-item>
+                  <vs-list-item title="Xian Famous" subtitle="A taste of Shaanxi's delicious culinary tradition.">
+                    <template slot="avatar" style="border-radius: 10px;">
+                      <!--<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>-->
+                      <img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="75">
+                    </template>
+                  </vs-list-item>
+                  <vs-list-item title="Steve Jobes" subtitle="Top Contributor">
+                    <template slot="avatar" style="border-radius: 10px;">
+                      <!--<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>-->
+                      <img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="75">
+                    </template>
+                  </vs-list-item>
+                  <vs-list-item title="Steve Jobes" subtitle="Top Contributor">
+                    <template slot="avatar" style="border-radius: 10px;">
+                      <!--<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>-->
+                      <img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="75">
+                    </template>
+                  </vs-list-item>
+                  <div>
+                    <vs-avatar color="primary" text="1"/>
+                    <vs-avatar color="primary" text="2"/>
+                    <vs-avatar color="primary" text="3"/>
+                  </div>
+                  <vs-list-header  title="Ưa thích" color="warning"></vs-list-header>
+                  <vs-list-item title="Steve Jobes" subtitle="Top Contributor">
+                    <template slot="avatar" style="border-radius: 10px;">
+                      <!--<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>-->
+                      <img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="80">
+                    </template>
+                  </vs-list-item>
+                  <vs-list-item title="Xian Famous Foods" subtitle="A taste of Shaanxi's delicious culinary tradition.">
+                    <template slot="avatar" style="border-radius: 10px;">
+                      <!--<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>-->
+                      <img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="80">
+                    </template>
+                  </vs-list-item>
+                  <vs-list-item title="Steve Jobes" subtitle="Top Contributor">
+                    <template slot="avatar" style="border-radius: 10px;">
+                      <!--<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>-->
+                      <img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="80">
+                    </template>
+                  </vs-list-item>
+                  <vs-list-item title="Steve Jobes" subtitle="Top Contributor">
+                    <template slot="avatar" style="border-radius: 10px;">
+                      <!--<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>-->
+                      <img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="80">
+                    </template>
+                  </vs-list-item>
+                  <div>
+                    <div>
+                      <vs-avatar color="primary" text="1"/>
+                      <vs-avatar color="primary" text="2"/>
+                      <vs-avatar color="primary" text="3"/>
+                    </div>
+                  </div>
+                </vs-list>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
     <div class="page">
       <div class="content content-pagex">
-        <div style="margin-left: 30px">
-          <vs-chip @click="remove_filter(chip)" transparent color="success" v-for="chip in filter" :key="chip" closable>
-            {{ chip }}
-          </vs-chip>
+        <div style="margin-top: -11px">
+          <vs-tabs alignment="center">
+            <vs-tab label="All">
+              <div>
+                <vs-row>
+                  <vs-col vs-type="flex" vs-w="11">
+                    <div style="margin-left: 30px">
+                      <vs-chip @click="remove_filter(chip)" transparent color="success" v-for="chip in filter" :key="chip" closable>
+                        {{ chip }}
+                      </vs-chip>
 
-        </div>
-        <div style="padding-bottom: 5px">
-          <grid-view></grid-view>
-          <!--<home></home>-->
+                    </div>
+                  </vs-col>
+                  <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="1">
+                    <div>
+                      <vs-button v-show="ViewSelect" color="success" type="border" icon="format_list_bulleted" @click="ViewSelect=!ViewSelect"></vs-button>
+                      <vs-button v-show="!ViewSelect" color="success" type="border" icon="grid_on" @click="ViewSelect=!ViewSelect"></vs-button>
+                    </div>
+                  </vs-col>
+                </vs-row>
+                <div>
+                  <grid-view v-show="ViewSelect"></grid-view>
+                  <list-view v-show="!ViewSelect"></list-view>
+                  <div style="padding-right: 30px">
+                    <vs-pagination :total="40" v-model="currentx"></vs-pagination>
+                  </div>
+                  <!--<home></home>-->
+                </div>
+
+              </div>
+            </vs-tab>
+            <vs-tab label="furniture">
+              <div>
+                <vs-row>
+                  <vs-col vs-type="flex" vs-w="11">
+                    <div style="margin-left: 30px">
+                      <vs-chip @click="remove_filter(chip)" transparent color="success" v-for="chip in filter" :key="chip" closable>
+                        {{ chip }}
+                      </vs-chip>
+
+                    </div>
+                  </vs-col>
+                  <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="1">
+                    <div>
+                      <vs-button v-show="ViewSelect" color="success" type="border" icon="format_list_bulleted" @click="ViewSelect=!ViewSelect"></vs-button>
+                      <vs-button v-show="!ViewSelect" color="success" type="border" icon="grid_on" @click="ViewSelect=!ViewSelect"></vs-button>
+                    </div>
+                  </vs-col>
+                </vs-row>
+                <div>
+                  <grid-view v-show="ViewSelect"></grid-view>
+                  <list-view v-show="!ViewSelect"></list-view>
+                  <div style="padding-right: 30px">
+                    <vs-pagination :total="40" v-model="currentx"></vs-pagination>
+                  </div>
+                  <!--<home></home>-->
+                </div>
+
+              </div>
+            </vs-tab>
+            <vs-tab label="electronics">
+              <div>
+
+              </div>
+            </vs-tab>
+            <vs-tab label="appliances">
+              <div>
+
+              </div>
+            </vs-tab>
+          </vs-tabs>
         </div>
       </div>
     </div>
@@ -196,12 +336,14 @@
 import home from '@/carousel/carousel.vue'
 import footerWeb from '@/components/bottom/bottomWeb.vue'
 import gridView from '@/gridView/gridView.vue'
+import listView from '@/listView/listView.vue'
 export default {
   name: 'header',
   components: {
     home,
     footerWeb,
-    gridView
+    gridView,
+    listView
     // HelloWorld
   },
   data () {
@@ -216,7 +358,9 @@ export default {
       filter: [],
       type_item: [{'title': 'Refrigerators & Freezers (5)', 'status': false}, {'title': 'Televisions (4)', 'status': false}, {'title': 'Water & Air Purifiers (3)', 'status': false},
         {'title': 'Washing Machines (2)', 'status': false}, {'title': 'Air Conditioners (2)', 'status': false}],
-      available_item: true
+      available_item: true,
+      currentx: 3,
+      ViewSelect: true
     }
   },
 

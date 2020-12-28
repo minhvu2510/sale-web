@@ -56,14 +56,14 @@ export default {
   data: () => ({
     saludo: 'Hola mundo',
     items: [
-      {id: '1', 'title': 'bassinet', 'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis quam scelerisque, eleifend purus gravida, scelerisque orci. Ut et turpis.', 'price': '2000'},
-      {id: '2', 'title': 'bentwood rocker', 'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis quam scelerisque, eleifend purus gravida, scelerisque orci. Ut et turpis.', 'price': '2000'},
-      {id: '3', 'title': 'bunk bed', 'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis quam scelerisque, eleifend purus gravida, scelerisque orci. Ut et turpis.', 'price': '2000'},
-      {id: '4', 'title': 'breakfront', 'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis quam scelerisque, eleifend purus gravida, scelerisque orci. Ut et turpis.', 'price': '2000'},
-      {id: '5', 'title': 'bureau', 'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis quam scelerisque, eleifend purus gravida, scelerisque orci. Ut et turpis.', 'price': '2000'},
-      {id: '6', 'title': 'chest of drawers', 'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis quam scelerisque, eleifend purus gravida, scelerisque orci. Ut et turpis.', 'price': '2000'},
-      {id: '7', 'title': 'credenza', 'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis quam scelerisque, eleifend purus gravida, scelerisque orci. Ut et turpis.', 'price': '2000'},
-      {id: '8', 'title': 'card table', 'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis quam scelerisque, eleifend purus gravida, scelerisque orci. Ut et turpis.', 'price': '2000'}
+      {id: '1', 'title': 'bassinet', 'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis quam scelerisque,', 'price': '2000'},
+      {id: '2', 'title': 'bentwood rocker', 'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis quam scelerisque,', 'price': '2000'},
+      {id: '3', 'title': 'bunk bed', 'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis quam scelerisque,', 'price': '2000'},
+      {id: '4', 'title': 'breakfront', 'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis quam scelerisque,.', 'price': '2000'},
+      {id: '5', 'title': 'bureau', 'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis quam scelerisque.', 'price': '2000'},
+      {id: '6', 'title': 'chest of drawers', 'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis quam scelerisque.', 'price': '2000'},
+      {id: '7', 'title': 'credenza', 'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis quam scelerisque.', 'price': '2000'},
+      {id: '8', 'title': 'card table', 'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis quam scelerisque.', 'price': '2000'}
     ]
   }),
   methods: {

@@ -2763,6 +2763,7 @@ div[id*=carbonads] span {
 }
 .sidebar-map {
  position:fixed;
+
  right:0;
  background-color:#fdfdfd;
  z-index:1000;
@@ -2777,7 +2778,11 @@ div[id*=carbonads] span {
  -webkit-box-pack:center;
  -ms-flex-pack:center;
  justify-content:center;
-  width:7.5rem
+  width:16rem;
+  word-wrap: break-word;
+  padding-right: 15px;
+  /*height: 90%;*/
+  /*padding-left: 15px;*/
 }
 .sidebar-map .sidebar-links-map {
  width:16.5rem
@@ -2791,7 +2796,7 @@ div[id*=carbonads] span {
  font-weight:700
 }
 .sidebar-map .con-carbon-noti {
- width:9rem;
+ width:16rem;
  position:relative;
  height:100%
 }
@@ -3584,7 +3589,7 @@ body {
 .content:not(.custom) {
  max-width:1200px;
  margin:0 auto;
- padding-top:3rem
+ /*padding-top:3rem*/
 }
 .content:not(.custom)>:first-child {
  margin-top:3rem
@@ -3853,7 +3858,7 @@ hr {
  }
  .sidebar {
   top:0;
-  padding-top:3rem;
+  /*padding-top:3rem;*/
   -webkit-transform:translateX(-100%);
   transform:translateX(-100%);
   -webkit-transition:-webkit-transform .2s ease;

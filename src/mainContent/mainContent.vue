@@ -3,7 +3,7 @@
     <div class="page">
       <div>
         <div class="content content-pagex">
-          <div style="padding-bottom: 5px">
+          <div>
             <!--<grid-view></grid-view>-->
             <!--<carousel></carousel>-->
             <!--<bottom-web></bottom-web>-->

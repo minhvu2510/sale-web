@@ -5,6 +5,7 @@ import header from '@/header/header'
 import footerWeb from '@/components/bottom/bottomWeb.vue'
 import gridView from '@/gridView/gridView.vue'
 import mainContent from '@/mainContent/mainContent.vue'
+import listView from '@/listView/listView.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -25,6 +26,10 @@ export default new Router({
     {
       path: '/gridView',
       component: gridView
+    },
+    {
+      path: '/listView',
+      component: listView
     }
     // {
     //   path: '/documentation',
