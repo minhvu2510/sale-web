@@ -7,6 +7,7 @@ import Vuesax from 'vuesax'
 import 'material-icons/iconfont/material-icons.css'
 import 'vuesax/dist/vuesax.css'
 import VueHorizontalList from 'vue-horizontal-list'
+import { store } from './store/store'
 Vue.use(VueHorizontalList)
 Vue.config.productionTip = false
 Vue.use(Vuesax, {
@@ -15,6 +16,7 @@ Vue.use(Vuesax, {
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   components: { App },
   template: '<App/>'

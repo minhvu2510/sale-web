@@ -49,10 +49,47 @@
           </div>
         </div>
         <div class="con-redes-download">
-          <vs-chip transparent color="danger">
-            <vs-avatar icon="shopping_cart" color="#5b3cc4"/>
-            1
-          </vs-chip>
+          <div class="centerx">
+            <vs-button type="line" @click="popupActivo=true">
+              <vs-chip transparent color="danger" @click="popupActivo=true">
+                <vs-avatar icon="shopping_cart" color="#5b3cc4"/>
+                {{$store.getters.cart.length}}
+              </vs-chip>
+            </vs-button>
+            <vs-popup class="holamundo"  title="Shopping cart" :active.sync="popupActivo">
+              <div>
+                <!--v-for="item in $store.getters.products" :key="item.id"-->
+                <vs-table :data="$store.getters.cart">
+                  <template slot="thead">
+                    <!--<vs-th>-->
+                    <!--Website-->
+                    <!--</vs-th>-->
+                    <!--<vs-th>-->
+                    <!--Nro-->
+                    <!--</vs-th>-->
+                  </template>
+
+                  <template slot-scope="{data}">
+                    <vs-tr :key="indextr" v-for="(tr, indextr) in data" >
+                      <vs-td :data="data[indextr].image">
+                        <!--{{data[indextr].email}}-->
+                        <img style="border-radius: 10px;" :src="data[indextr].image" alt="Girl in a jacket" width="160" height="100">
+                      </vs-td>
+
+                      <vs-td :data="data[indextr].username">
+                        <span>{{data[indextr].title}}</span>
+                        <!--{{data[indextr].name}}-->
+                      </vs-td>
+                    </vs-tr>
+                  </template>
+                </vs-table>
+              </div>
+              <p>
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+              </p>
+            </vs-popup>
+          </div>
           <a href="https://github.com/lusaxweb/vuesax/releases/download/v3.8.61/vuesax-3.8.61.zip" class="btn-download">
             <i class="vs-icon notranslate icon-scale material-icons null">face</i><span>Log in</span></a>
           <a href="https://github.com/lusaxweb/vuesax/releases/download/v3.8.61/vuesax-3.8.61.zip" class="btn-download">
@@ -195,25 +232,20 @@
               <div style="overflow: auto">
                 <vs-list style="overflow: auto">
                   <vs-list-header  title="Highlights" color="success"></vs-list-header>
-                  <vs-list-item title="Steve Jobes" subtitle="Top Contributor">
+                  <div  v-for="item in $store.getters.favarite" :key="item.id">
+                    <vs-list-item :title="item.title" :subtitle="item.price + '000 $'">
+                      <template slot="avatar" style="border-radius: 10px;">
+                        <img style="border-radius: 10px;" :src="item.image" alt="Girl in a jacket" width="100" height="75">
+                      </template>
+                    </vs-list-item>
+                  </div>
+                  <vs-list-item title="Abrams 8 PC Rectangular Dining" subtitle="1000 000$">
                     <template slot="avatar" style="border-radius: 10px;">
                       <!--<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>-->
                       <img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="75">
                     </template>
                   </vs-list-item>
-                  <vs-list-item title="Xian Famous" subtitle="A taste of Shaanxi's delicious culinary tradition.">
-                    <template slot="avatar" style="border-radius: 10px;">
-                      <!--<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>-->
-                      <img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="75">
-                    </template>
-                  </vs-list-item>
-                  <vs-list-item title="Steve Jobes" subtitle="Top Contributor">
-                    <template slot="avatar" style="border-radius: 10px;">
-                      <!--<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>-->
-                      <img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="75">
-                    </template>
-                  </vs-list-item>
-                  <vs-list-item title="Steve Jobes" subtitle="Top Contributor">
+                  <vs-list-item title="Abrams 8 PC" subtitle="2000 000$">
                     <template slot="avatar" style="border-radius: 10px;">
                       <!--<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>-->
                       <img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="75">
@@ -224,38 +256,18 @@
                     <vs-avatar color="primary" text="2"/>
                     <vs-avatar color="primary" text="3"/>
                   </div>
-                  <vs-list-header  title="Ưa thích" color="warning"></vs-list-header>
-                  <vs-list-item title="Steve Jobes" subtitle="Top Contributor">
-                    <template slot="avatar" style="border-radius: 10px;">
-                      <!--<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>-->
-                      <img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="80">
-                    </template>
-                  </vs-list-item>
-                  <vs-list-item title="Xian Famous Foods" subtitle="A taste of Shaanxi's delicious culinary tradition.">
-                    <template slot="avatar" style="border-radius: 10px;">
-                      <!--<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>-->
-                      <img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="80">
-                    </template>
-                  </vs-list-item>
-                  <vs-list-item title="Steve Jobes" subtitle="Top Contributor">
-                    <template slot="avatar" style="border-radius: 10px;">
-                      <!--<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>-->
-                      <img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="80">
-                    </template>
-                  </vs-list-item>
-                  <vs-list-item title="Steve Jobes" subtitle="Top Contributor">
-                    <template slot="avatar" style="border-radius: 10px;">
-                      <!--<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>-->
-                      <img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="80">
-                    </template>
-                  </vs-list-item>
-                  <div>
-                    <div>
-                      <vs-avatar color="primary" text="1"/>
-                      <vs-avatar color="primary" text="2"/>
-                      <vs-avatar color="primary" text="3"/>
-                    </div>
+                  <div style="position: fixed; bottom: 0px; right: 0px">
+                    <vs-alert color="danger" icon="new_releases" >
+                      <span>Admin <b>!</b></span>
+                    </vs-alert>
                   </div>
+                  <!--<div>-->
+                    <!--<div>-->
+                      <!--<vs-avatar color="primary" text="1"/>-->
+                      <!--<vs-avatar color="primary" text="2"/>-->
+                      <!--<vs-avatar color="primary" text="3"/>-->
+                    <!--</div>-->
+                  <!--</div>-->
                 </vs-list>
 
               </div>
@@ -329,11 +341,30 @@
             </vs-tab>
             <vs-tab label="Free ship">
               <div>
+                <vs-row>
+                  <vs-col vs-type="flex" vs-w="11">
+                    <div style="margin-left: 30px">
+                      <vs-chip @click="remove_filter(chip)" transparent color="success" v-for="chip in filter" :key="chip" closable>
+                        {{ chip }}
+                      </vs-chip>
 
-              </div>
-            </vs-tab>
-            <vs-tab label="appliances">
-              <div>
+                    </div>
+                  </vs-col>
+                  <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="1">
+                    <div>
+                      <vs-button v-show="ViewSelect" color="success" type="border" icon="format_list_bulleted" @click="ViewSelect=!ViewSelect"></vs-button>
+                      <vs-button v-show="!ViewSelect" color="success" type="border" icon="grid_on" @click="ViewSelect=!ViewSelect"></vs-button>
+                    </div>
+                  </vs-col>
+                </vs-row>
+                <div>
+                  <grid-view v-show="ViewSelect"></grid-view>
+                  <list-view v-show="!ViewSelect"></list-view>
+                  <div style="padding-right: 30px">
+                    <vs-pagination :total="40" v-model="currentx"></vs-pagination>
+                  </div>
+                  <!--<home></home>-->
+                </div>
 
               </div>
             </vs-tab>
@@ -376,7 +407,8 @@ export default {
         {'title': 'Washing Machines (2)', 'status': false}, {'title': 'Air Conditioners (2)', 'status': false}],
       available_item: true,
       currentx: 3,
-      ViewSelect: true
+      ViewSelect: true,
+      popupActivo: false
     }
   },
 

@@ -6,7 +6,8 @@
       <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="5" vs-sm="5" vs-xs="12">
         <div>
           <div>
-            <vs-table :data="users">
+            <!--v-for="item in $store.getters.products" :key="item.id"-->
+            <vs-table :data="$store.getters.products">
               <template slot="thead">
                 <!--<vs-th>-->
                 <!--Website-->
@@ -20,7 +21,7 @@
                 <vs-tr :key="indextr" v-for="(tr, indextr) in data" >
                   <vs-td :data="data[indextr].email">
                     <!--{{data[indextr].email}}-->
-                    <img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="200" height="140">
+                    <img style="border-radius: 10px;" :src="data[indextr].image" alt="Girl in a jacket" width="200" height="140">
                   </vs-td>
 
                   <vs-td :data="data[indextr].username">

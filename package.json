@@ -19,7 +19,8 @@
     "vue": "^2.5.2",
     "vue-horizontal-list": "^1.2.1",
     "vue-router": "^3.0.1",
-    "vuesax": "^3.12.2"
+    "vuesax": "^3.12.2",
+    "vuex": "^3.6.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
