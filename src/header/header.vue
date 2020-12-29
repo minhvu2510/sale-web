@@ -77,7 +77,8 @@
                       </vs-td>
 
                       <vs-td :data="data[indextr].username">
-                        <span>{{data[indextr].title}}</span>
+                        <span style="text-align: center">{{data[indextr].title}}</span>
+                        <p style="text-align: center; color: red">{{data[indextr].price}} 000 $</p>
                         <!--{{data[indextr].name}}-->
                       </vs-td>
                     </vs-tr>

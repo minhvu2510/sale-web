@@ -14,11 +14,11 @@
           </div>
           <div>
             <h3>{{item.title}}</h3><br/>
-            <span>{{item.price}} 000 $</span>
+            <span style="color: red">{{item.price}} 000 $</span>
           </div>
           <div style="margin: 10px 10px 10px 35px">
             <vs-tooltip text="Add to favorites">
-              <vs-button  color="danger" type="line" icon="favorite"></vs-button>
+              <vs-button @click="$vs.notify({title:'Danger',text:'Contact author',color:'danger'})"  color="danger" type="line" icon="favorite"></vs-button>
             </vs-tooltip>
             <vs-tooltip text="watch it later">
               <vs-button @click="pickFavorite(item.id)" color="primary" type="line" icon="turned_in_not"></vs-button>
