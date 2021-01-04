@@ -61,12 +61,6 @@
                 <!--v-for="item in $store.getters.products" :key="item.id"-->
                 <vs-table :data="$store.getters.cart">
                   <template slot="thead">
-                    <!--<vs-th>-->
-                    <!--Website-->
-                    <!--</vs-th>-->
-                    <!--<vs-th>-->
-                    <!--Nro-->
-                    <!--</vs-th>-->
                   </template>
 
                   <template slot-scope="{data}">
@@ -76,19 +70,19 @@
                         <img style="border-radius: 10px;" :src="data[indextr].image" alt="Girl in a jacket" width="160" height="100">
                       </vs-td>
 
-                      <vs-td :data="data[indextr].username">
+                      <vs-td :data="data[indextr].username" style="text-align: center">
                         <span style="text-align: center">{{data[indextr].title}}</span>
                         <p style="text-align: center; color: red">{{data[indextr].price}} 000 $</p>
-                        <!--{{data[indextr].name}}-->
+                        <div style="text-align: center">
+                          <vs-button color="primary" type="flat">View</vs-button>
+                          <vs-button color="success" type="flat">Purchase</vs-button>
+                          <vs-button color="danger" type="flat" @click="deleItemCard(data[indextr].id)">Delete</vs-button>
+                        </div>
                       </vs-td>
                     </vs-tr>
                   </template>
                 </vs-table>
               </div>
-              <p>
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-              </p>
             </vs-popup>
           </div>
           <a href="https://github.com/lusaxweb/vuesax/releases/download/v3.8.61/vuesax-3.8.61.zip" class="btn-download">
@@ -124,12 +118,12 @@
                   <img :key="index" src="https://raw.githubusercontent.com/lusaxweb/vuesax/master/public/vuesax-logo-beta.png" width="40px" height="40px"/>
                 </a>
               </li>
-              <li title="Become a Sponsor">
-                <a target="_blank" href="https://www.patreon.com/bePatron?c=1567892">
-                  <!--<i class="vs-icon notranslate icon-scale material-icons null">add</i>-->
-                  <img :key="index" src="https://user-images.githubusercontent.com/2678654/32683180-4b968114-c647-11e7-9c0a-2b3c11bf6ac5.png" width="40px" height="40px"/>
-                </a>
-              </li>
+              <!--<li title="Become a Sponsor">-->
+                <!--<a target="_blank" href="https://www.patreon.com/bePatron?c=1567892">-->
+                  <!--&lt;!&ndash;<i class="vs-icon notranslate icon-scale material-icons null">add</i>&ndash;&gt;-->
+                  <!--<img :key="index" src="https://user-images.githubusercontent.com/2678654/32683180-4b968114-c647-11e7-9c0a-2b3c11bf6ac5.png" width="40px" height="40px"/>-->
+                <!--</a>-->
+              <!--</li>-->
             </ul>
           </div>
           <div class="search-box" style="padding-bottom: 5px">
@@ -240,18 +234,18 @@
                       </template>
                     </vs-list-item>
                   </div>
-                  <vs-list-item title="Abrams 8 PC Rectangular Dining" subtitle="1000 000$">
-                    <template slot="avatar" style="border-radius: 10px;">
-                      <!--<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>-->
-                      <img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="75">
-                    </template>
-                  </vs-list-item>
-                  <vs-list-item title="Abrams 8 PC" subtitle="2000 000$">
-                    <template slot="avatar" style="border-radius: 10px;">
-                      <!--<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>-->
-                      <img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="75">
-                    </template>
-                  </vs-list-item>
+                  <!--<vs-list-item title="Abrams 8 PC Rectangular Dining" subtitle="1000 000$">-->
+                    <!--<template slot="avatar" style="border-radius: 10px;">-->
+                      <!--&lt;!&ndash;<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>&ndash;&gt;-->
+                      <!--<img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="75">-->
+                    <!--</template>-->
+                  <!--</vs-list-item>-->
+                  <!--<vs-list-item title="Abrams 8 PC" subtitle="2000 000$">-->
+                    <!--<template slot="avatar" style="border-radius: 10px;">-->
+                      <!--&lt;!&ndash;<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>&ndash;&gt;-->
+                      <!--<img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="75">-->
+                    <!--</template>-->
+                  <!--</vs-list-item>-->
                   <div>
                     <vs-avatar color="primary" text="1"/>
                     <vs-avatar color="primary" text="2"/>
@@ -371,6 +365,7 @@
             </vs-tab>
           </vs-tabs>
         </div>
+        <!--<detail-produt></detail-produt>-->
       </div>
     </div>
     <div class="page">
@@ -385,13 +380,15 @@ import home from '@/carousel/carousel.vue'
 import footerWeb from '@/components/bottom/bottomWeb.vue'
 import gridView from '@/gridView/gridView.vue'
 import listView from '@/listView/listView.vue'
+import detailProdut from '@/components/detailProduct/detailProduct.vue'
 export default {
   name: 'header',
   components: {
     home,
     footerWeb,
     gridView,
-    listView
+    listView,
+    detailProdut
     // HelloWorld
   },
   data () {
@@ -474,6 +471,25 @@ export default {
       if (type === 'available' && this.available_item === true) {
         this.filter.push('Available')
       }
+    },
+    deleItemCard (id) {
+      console.log(id)
+      this.$vs.dialog({
+        type: 'confirm',
+        color: 'danger',
+        title: `Confirm`,
+        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        accept: this.$store.commit('removeCart', id)
+      })
+      // this.$store.getters.cart
+    },
+    acceptAlert (id) {
+      this.$vs.notify({
+        color: 'danger',
+        title: 'Deleted image',
+        text: 'The selected image was successfully deleted'
+      })
+      this.$store.commit('removeCart', id)
     },
     remove_filter (item) {
       this.filter.splice(this.filter.indexOf(item), 1)

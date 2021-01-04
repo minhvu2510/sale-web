@@ -51,7 +51,7 @@
       <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="5" vs-sm="5" vs-xs="12">
         <div>
           <div>
-            <vs-table :data="$store.getters.products.slice(4,8)">
+            <vs-table :data="$store.getters.products.slice(5,9)">
               <template slot="thead">
                 <!--<vs-th>-->
                 <!--Website-->
@@ -78,10 +78,10 @@
                       <vs-button @click="$vs.notify({title:'Danger',text:'Contact author',color:'danger'})" color="danger" type="line" icon="favorite"></vs-button>
                     </vs-tooltip>
                     <vs-tooltip text="watch it later">
-                      <vs-button @click="pickFavorite(item.id)" color="primary" type="line" icon="turned_in_not"></vs-button>
+                      <vs-button @click="pickFavorite(data[indextr].id)" color="primary" type="line" icon="turned_in_not"></vs-button>
                     </vs-tooltip>
                     <vs-tooltip text="Add to the shopping cart">
-                      <vs-button @click="pickItem(item.id)" color="success" type="line" icon="shopping_cart"></vs-button>
+                      <vs-button @click="pickItem(data[indextr].id)" color="success" type="line" icon="shopping_cart"></vs-button>
                     </vs-tooltip>
                   </div>
                 </vs-tr>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <vs-row vs-justify="center">
-      <vs-col type="flex" vs-justify="center" vs-align="center" vs-lg="3" vs-sm="6" vs-xs="12" v-for="item in $store.getters.products" :key="item.id">
+      <vs-col type="flex" vs-justify="center" vs-align="center" vs-lg="3" vs-sm="6" vs-xs="12" v-for="item in $store.getters.products.slice(0,8)" :key="item.id">
         <vs-card actionable class="cardx">
           <!--<div slot="header">-->
             <!--<h3>-->

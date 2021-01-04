@@ -47,7 +47,7 @@ export const store = new Vuex.Store({
         'image': 'https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg',
         'description': ''
       },
-      { 'id': 5,
+      { 'id': 12,
         'title': 'Abrams 8 PC Rectangular Dining',
         'price': '20000',
         'available': 5,
@@ -75,7 +75,7 @@ export const store = new Vuex.Store({
         'title': 'Leskow 3PC Mid Century Sofa Set',
         'price': '23000',
         'available': 5,
-        'type': 'Barett Mid-Century Modern 5 PC Dining Set',
+        'type': 'Barett Mid-Century',
         'image': 'https://miro.medium.com/max/1000/1*YwiyqtNPXlTlW2jGj5XKEA.jpeg',
         'description': ''
       },
@@ -134,6 +134,13 @@ export const store = new Vuex.Store({
       for (let it in state.products) {
         if (state.products[it]['id'] === id) {
           state.cart.push(state.products[it])
+        }
+      }
+    },
+    removeCart (state, id) {
+      for (let it in state.cart) {
+        if (state.cart[it]['id'] === id) {
+          state.cart.slice(state.cart[it], 1)
         }
       }
     },

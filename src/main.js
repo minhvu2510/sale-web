@@ -8,6 +8,8 @@ import 'material-icons/iconfont/material-icons.css'
 import 'vuesax/dist/vuesax.css'
 import VueHorizontalList from 'vue-horizontal-list'
 import { store } from './store/store'
+import Lingallery from 'lingallery'
+Vue.component('lingallery', Lingallery)
 Vue.use(VueHorizontalList)
 Vue.config.productionTip = false
 Vue.use(Vuesax, {
