@@ -124,7 +124,8 @@ export const store = new Vuex.Store({
         'image': 'https://miro.medium.com/max/700/1*GNI26PFXc03DDOcTyiswwg.jpeg',
         'description': ''
       }
-    ]
+    ],
+    loadSideBar: false
   },
   mutations: {
     change (state, flavor) {
@@ -140,7 +141,11 @@ export const store = new Vuex.Store({
     removeCart (state, id) {
       for (let it in state.cart) {
         if (state.cart[it]['id'] === id) {
-          state.cart.slice(state.cart[it], 1)
+          // state.cart.slice(state.cart[it], 1)
+          // state.cart.pop()
+          // console.log(state.cart[it], 'minhvu')
+          state.cart.pop()
+          // state.cart.slice(state.cart.indexOf(state.cart[it]), 1)
         }
       }
     },
@@ -155,12 +160,24 @@ export const store = new Vuex.Store({
           }
         }
       }
+    },
+    pickSide (state) {
+      state.loadSideBar = true
+      this.$vs.loading({
+        container: '#div-with-loading',
+        type: 'point',
+        scale: 0.6
+      })
+      setTimeout(() => {
+        this.$vs.loading.close('#div-with-loading > .con-vs-loading')
+      }, 1000)
     }
   },
   getters: {
     flavor: state => state.flavor,
     products: state => state.products,
     cart: state => state.cart,
-    favarite: state => state.favarite
+    favarite: state => state.favarite,
+    loadSideBar: state => state.loadSideBar
   }
 })

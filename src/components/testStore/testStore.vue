@@ -76,19 +76,19 @@
                         <img style="border-radius: 10px;" :src="data[indextr].image" alt="Girl in a jacket" width="160" height="100">
                       </vs-td>
 
-                      <vs-td :data="data[indextr].username">
+                      <vs-td :data="data[indextr].username" style="text-align: center">
                         <span style="text-align: center">{{data[indextr].title}}</span>
                         <p style="text-align: center; color: red">{{data[indextr].price}} 000 $</p>
-                        <!--{{data[indextr].name}}-->
+                        <div style="text-align: center">
+                          <vs-button color="primary" type="flat" @click="$vs.notify({title:'Danger',text:'Contact author',color:'danger'})">View</vs-button>
+                          <vs-button color="success" type="flat" @click="$vs.notify({title:'Danger',text:'Contact author',color:'danger'})">Purchase</vs-button>
+                          <vs-button color="danger" type="flat" @click="deleItemCard(data[indextr].id)">Delete</vs-button>
+                        </div>
                       </vs-td>
                     </vs-tr>
                   </template>
                 </vs-table>
               </div>
-              <p>
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-              </p>
             </vs-popup>
           </div>
           <a href="https://github.com/lusaxweb/vuesax/releases/download/v3.8.61/vuesax-3.8.61.zip" class="btn-download">
@@ -282,6 +282,9 @@
               <div style="overflow: auto">
                 <vs-list style="overflow: auto">
                   <vs-list-header  title="Highlights" color="success"></vs-list-header>
+                  <div v-if="$store.getters.loadSideBar">
+                    <div id="div-with-loading" class="vs-con-loading__container">Load Me!</div>
+                  </div>
                   <div  v-for="item in $store.getters.favarite" :key="item.id">
                     <vs-list-item :title="item.title" :subtitle="item.price + '000 $'">
                       <template slot="avatar" style="border-radius: 10px;">
@@ -327,14 +330,40 @@
       </div>
 
     </div>
+
     <div class="page">
+      <router-link :to="'/'">
+        <div style="padding-left: 15px">
+          <vs-button color="primary" type="border" icon="arrow_back">Back</vs-button>
+        </div>
+      </router-link>
       <div class="content content-pagex">
         <detail-produt></detail-produt>
       </div>
+      <div>
+        <!--<div class="centerx example-loading">-->
+          <!--<div-->
+            <!--class="fill-row-loading">-->
+            <!--<div-->
+              <!--:class="{'activeLoading':activeLoading}"-->
+              <!--@click="openLoading(type)"-->
+              <!--v-for="type in types"-->
+              <!--:id="[`loading-${type}`]"-->
+              <!--class="vs-con-loading__container loading-example">-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--<vs-button @click="openLoadingInDiv" type="relief" vslor="primary">Div with Loading</vs-button>-->
+        <!--<div>-->
+          <!--&lt;!&ndash;<div id="div-with-loading" class="vs-con-loading__container">Load Me!</div>&ndash;&gt;-->
+        <!--</div>-->
+
+      </div>
     </div>
     <div class="page">
-      <home></home>
-      <footerWeb></footerWeb>
+      <!--<home></home>-->
+      <!--<footerWeb></footerWeb>-->
     </div>
   </div>
 </template>
@@ -362,74 +391,79 @@ export default {
       available_item: true,
       currentx: 3,
       ViewSelect: true,
-      popupActivo: false
+      popupActivo: false,
+      detail: {},
+      types: [
+        'default',
+        'point',
+        'radius',
+        'corners',
+        'border',
+        'sound',
+        'material'
+      ],
+      activeLoading: false,
+      loader: false
     }
+  },
+  mounted () {
+    console.log(this.$route.params.id_item)
+    this.getDetail()
+    this.types.forEach((type) => {
+      console.log(type)
+      this.$vs.loading({
+        container: `#loading-${type}`,
+        type,
+        text: type
+      })
+    })
   },
 
   methods: {
     myFilter () {
-      console.log('dmđmdm')
       this.isActive = !this.isActive
       this.noSideba = !this.noSideba
       console.log(this.isActive)
       // some code to filter users
     },
-    clickSidebar (keyCheck) {
-      if (keyCheck === 'cost') {
-        this.active_sidebar.cost = true
-        this.active_sidebar.type = false
-        this.active_sidebar.available = false
-        this.suggess_cost.low = true
-        this.suggess_cost.hight = true
-      }
-      if (keyCheck === 'type') {
-        this.active_sidebar.type = true
-        this.active_sidebar.cost = false
-        this.active_sidebar.available = false
-        this.suggess_cost.low = false
-        this.suggess_cost.hight = false
-      }
-      if (keyCheck === 'available') {
-        this.active_sidebar.available = true
-        this.active_sidebar.type = false
-        this.active_sidebar.cost = false
-        this.suggess_cost.low = false
-        this.suggess_cost.hight = false
-      }
-      console.log('anh chi la ke ngoc nhung nho dieu xa voi')
-    },
-    setCost (type, cost) {
-      console.log(cost)
-      if (type === 'low') {
-        var num = Number(parseInt(cost.replace('k', '000'))).toLocaleString('fi-FI')
-        this.select_cost.value_low = num
-      } else {
-        this.select_cost.value_hight = Number(parseInt(cost.replace('k', '000'))).toLocaleString('fi-FI')
-      }
-    },
-    filter_item (type) {
-      if (type === 'cost') {
-        let filCost = this.select_cost.value_low + ' - ' + this.select_cost.value_hight
-        this.filter.push(filCost)
-      }
-      if (type === 'type') {
-        console.log(this.type_item)
-        for (let it in this.type_item) {
-          console.log(it)
-          if (this.type_item[it]['status'] === true) {
-            console.log(this.type_item)
-            console.log(it)
-            this.filter.push(this.type_item[it]['title'])
-          }
+    getDetail () {
+      let allItems = this.$store.getters.products
+      for (let it in allItems) {
+        // console.log(allItems[it]['id'])
+        // console.log(this.$route.params.id_item)
+        if (allItems[it]['id'].toString() === this.$route.params.id_item.toString()) {
+          this.detail = allItems[it]
+          console.log(this.detail)
         }
-        // this.filter.push(filCost)
-      }
-      if (type === 'available' && this.available_item === true) {
-        this.filter.push('Available')
       }
     },
-    remove_filter (item) {
-      this.filter.splice(this.filter.indexOf(item), 1)
+    deleItemCard (id) {
+      this.$vs.dialog({
+        color: 'danger',
+        title: `Confirm`,
+        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        accept: this.acceptAlert(id)
+      })
+    },
+    acceptAlert (id) {
+      this.$vs.notify({
+        color: 'danger',
+        title: 'Deleted image',
+        text: 'The selected image was successfully deleted'
+      })
+      this.$store.commit('removeCart', id)
+    },
+    openLoading (type) {
+      this.activeLoading = true
+      this.$vs.loading({
+        type: type
+      })
+      setTimeout(() => {
+        this.activeLoading = false
+        this.$vs.loading.close()
+      }, 3000)
+    },
+    openLoadingInDiv () {
     }
   }
 }
@@ -462,33 +496,16 @@ export default {
     background-color: white;
   }
 
-  .style-select {
-    background: rgba(0, 196, 244, 0.05);
-    border: 1px solid #0088cc;
-    /*color: #676767;*/
-    color: rgba(31,116,255,1);
-  .el-card__body {
-  .price-cover {
-    color: #0088cc;
-  }
-  }
-  }
-
-  .inline {
-    display: inline-block;
-    margin: 1em;
-  }
-
-  .wrap {
-    display: table;
-    padding-left: 20px;
-    margin-left: 20px;
-  }
-
   .wrap vs-checkbox {
     padding-left: 20px;
     margin-left: 20px;
     display:        table-cell;
     vertical-align: middle;
+  }
+  .fill-row-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap
   }
 </style>

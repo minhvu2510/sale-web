@@ -74,8 +74,8 @@
                         <span style="text-align: center">{{data[indextr].title}}</span>
                         <p style="text-align: center; color: red">{{data[indextr].price}} 000 $</p>
                         <div style="text-align: center">
-                          <vs-button color="primary" type="flat">View</vs-button>
-                          <vs-button color="success" type="flat">Purchase</vs-button>
+                          <vs-button color="primary" type="flat" @click="$vs.notify({title:'Danger',text:'Contact author',color:'danger'})">View</vs-button>
+                          <vs-button color="success" type="flat" @click="$vs.notify({title:'Danger',text:'Contact author',color:'danger'})">Purchase</vs-button>
                           <vs-button color="danger" type="flat" @click="deleItemCard(data[indextr].id)">Delete</vs-button>
                         </div>
                       </vs-td>
@@ -181,7 +181,7 @@
                 <div style="padding-left: 20px">
                   <div v-for="item in type_item" :key="item.title" @click="clickSidebar('type')">
                     <input type="checkbox" name="vehicle1" v-model="item.status">
-                    <label for="vehicle1"> {{item.title}}</label><br>
+                    <label> {{item.title}}</label><br>
                   </div>
                 </div>
 
@@ -389,7 +389,6 @@ export default {
     gridView,
     listView,
     detailProdut
-    // HelloWorld
   },
   data () {
     return {
@@ -401,13 +400,15 @@ export default {
       suggess_value: ['100k', '200k', '500k', '1000k', '1500k'],
       select_cost: {'value_hight': '', 'value_low': ''},
       filter: [],
-      type_item: [{'title': 'Refrigerators & Freezers (5)', 'status': false}, {'title': 'Televisions (4)', 'status': false}, {'title': 'Water & Air Purifiers (3)', 'status': false},
-        {'title': 'Washing Machines (2)', 'status': false}, {'title': 'Air Conditioners (2)', 'status': false}],
+      type_item: [{'title': 'MID-CENTURY MODERN (5)', 'status': false}, {'title': 'Barett Mid-Century (4)', 'status': false}, {'title': 'CONTEMPORARY (3)', 'status': false},
+        {'title': 'MODERN (2)', 'status': false}, {'title': 'TRADITIONAL (2)', 'status': false}],
       available_item: true,
       currentx: 3,
       ViewSelect: true,
       popupActivo: false
     }
+  },
+  mounted () {
   },
 
   methods: {
@@ -474,12 +475,19 @@ export default {
     },
     deleItemCard (id) {
       console.log(id)
+      // let it = id
+      // this.$vs.dialog({
+      //   type: 'confirm',
+      //   color: 'danger',
+      //   title: `Confirm`,
+      //   text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      //   accept: this.acceptAlert(it)
+      // })
       this.$vs.dialog({
-        type: 'confirm',
         color: 'danger',
         title: `Confirm`,
         text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        accept: this.$store.commit('removeCart', id)
+        accept: this.acceptAlert(id)
       })
       // this.$store.getters.cart
     },

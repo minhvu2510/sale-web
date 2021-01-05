@@ -26,8 +26,10 @@
 
                   <vs-td :data="data[indextr].username">
                     <!--<h2>Phasellus iaculis dignissim erat at</h2>-->
-                    <h3>{{data[indextr].title}}</h3>
-                    <p style="color: red">{{data[indextr].price}} 000 $</p>
+                    <router-link :to="'detail/'+data[indextr].id" :key="data[indextr].price">
+                      <h3>{{data[indextr].title}}</h3>
+                      <p style="color: red">{{data[indextr].price}} 000 $</p>
+                    </router-link>
                   </vs-td>
                   <div style="margin: 10px 10px 10px 35px">
                     <vs-tooltip text="Add to favorites">
@@ -70,8 +72,10 @@
 
                   <vs-td :data="data[indextr].username">
                     <!--<h2>Phasellus iaculis dignissim erat at</h2>-->
-                    <h3>{{data[indextr].title}}</h3>
-                    <p style="color: red">{{data[indextr].price}} 000 $</p>
+                    <router-link :to="'detail/'+data[indextr].id" :key="data[indextr].price">
+                      <h3>{{data[indextr].title}}</h3>
+                      <p style="color: red">{{data[indextr].price}} 000 $</p>
+                    </router-link>
                   </vs-td>
                   <div style="margin: 10px 10px 10px 35px">
                     <vs-tooltip text="Add to favorites">

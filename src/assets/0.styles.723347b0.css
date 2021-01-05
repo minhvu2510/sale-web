@@ -7471,8 +7471,8 @@ hr {
 .vs-con-loading__container .con-vs-loading {
  position:absolute!important;
  width:100%;
- height:100%;
- min-height:60px;
+ height:0px;
+ min-height:0px;
  top:50%;
  left:50%;
  -webkit-transform:translate(-50%,-50%);
@@ -7483,7 +7483,7 @@ hr {
 }
 .con-vs-loading {
  width:100%;
- height:100%;
+ height:0px;
  position:fixed;
  left:0;
  top:0;
@@ -14216,12 +14216,12 @@ pre[data-v-169a7f23] {
  margin-bottom:20px
 }
 #div-with-loading {
- width:200px;
- height:200px;
+ width:100px;
+ height:100px;
  margin:auto;
- border-radius:5px;
- -webkit-box-shadow:0 3px 10px 0 rgba(0,0,0,.1);
- box-shadow:0 3px 10px 0 rgba(0,0,0,.1)
+ /*border-radius:5px;*/
+ /*-webkit-box-shadow:0 3px 10px 0 rgba(0,0,0,.1);*/
+ /*box-shadow:0 3px 10px 0 rgba(0,0,0,.1)*/
 }
 #div-with-loading,
 .fill-row-loading {

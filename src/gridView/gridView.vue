@@ -12,10 +12,12 @@
             <!--<img :src="$withBase('/card.png')">-->
             <img :src="item.image" style="border-radius: 7px;">
           </div>
-          <div>
-            <h3>{{item.title}}</h3><br/>
-            <span style="color: red">{{item.price}} 000 $</span>
-          </div>
+          <router-link :to="'detail/'+item.id" :key="item.price">
+            <div>
+              <h3>{{item.title}}</h3><br/>
+              <span style="color: red">{{item.price}} 000 $</span>
+            </div>
+          </router-link>
           <div style="margin: 10px 10px 10px 35px">
             <vs-tooltip text="Add to favorites">
               <vs-button @click="$vs.notify({title:'Danger',text:'Contact author',color:'danger'})"  color="danger" type="line" icon="favorite"></vs-button>
@@ -104,6 +106,7 @@ export default {
           icon: 'shopping_cart',
           position: 'top-right'
         })
+
       } else {
         this.$store.commit('addFavorite', id)
       }

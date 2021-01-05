@@ -35,6 +35,10 @@ export default new Router({
     {
       path: '/testStore',
       component: testStore
+    },
+    {
+      path: '/detail/:id_item',
+      component: testStore
     }
     // {
     //   path: '/documentation',
