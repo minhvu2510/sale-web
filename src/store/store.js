@@ -125,7 +125,9 @@ export const store = new Vuex.Store({
         'description': ''
       }
     ],
-    loadSideBar: false
+    loadSideBar: false,
+    isSidebarActive: false,
+    themeColor: '#2962ff'
   },
   mutations: {
     change (state, flavor) {
@@ -171,6 +173,9 @@ export const store = new Vuex.Store({
       setTimeout(() => {
         this.$vs.loading.close('#div-with-loading > .con-vs-loading')
       }, 1000)
+    },
+    IS_SIDEBAR_ACTIVE (state, value) {
+      state.isSidebarActive = value
     }
   },
   getters: {

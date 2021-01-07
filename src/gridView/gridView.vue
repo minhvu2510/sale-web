@@ -106,7 +106,6 @@ export default {
           icon: 'shopping_cart',
           position: 'top-right'
         })
-
       } else {
         this.$store.commit('addFavorite', id)
       }

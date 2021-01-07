@@ -39,6 +39,26 @@ export default new Router({
     {
       path: '/detail/:id_item',
       component: testStore
+    },
+    // {
+    //   path: '/starterkit',
+    //   name: 'Starterkit',
+    //   index: 1,
+    //   component: () => import('@/views/StarterPage.vue')
+    // },
+    {
+      path: '/admin',
+      component: () => import('@/layout/full/MainContainer.vue'),
+      // ======================
+      // Theme routes / pages
+      // ======================
+
+      children: [
+        {
+          path: '/admin',
+          index: 1,
+          component: () => import('@/views/StarterPage.vue')
+        }]
     }
     // {
     //   path: '/documentation',

@@ -12,7 +12,9 @@
           <div class="links">
             <nav class="nav-links can-hide">
               <div class="nav-item">
-                <a>Home</a>
+                <router-link to="/">
+                  <a>Home</a>
+                </router-link>
               </div>
               <div class="nav-item">
                 <a data-v-ac54a82c="" href="/vuesax/development/" class="nav-link">Documentation</a>
