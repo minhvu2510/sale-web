@@ -1,6 +1,6 @@
-# https://sale-webf.herokuapp.com/
+# sale-web preview
 
-> A Vue.js project
+> https://sale-webf.herokuapp.com/
 
 ## Build Setup
 
