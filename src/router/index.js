@@ -55,10 +55,27 @@ export default new Router({
 
       children: [
         {
-          path: '/admin',
-          index: 1,
+          path: '/admin/dashboard',
+          index: 2,
           component: () => import('@/views/StarterPage.vue')
-        }]
+        },
+        {
+          path: '/admin/invoice',
+          name: 'Avatar',
+          index: 3,
+          component: () => import('@/views/components/vuesax/avatar/avatar.vue')
+        },
+        {
+          path: '/admin/pruducts',
+          name: 'Products',
+          index: 4,
+          component: () => import('@/views/components/vuesax/breadcrumb/breadcrumb.vue')
+        }
+      ]
+    },
+    {
+      path: '*',
+      redirect: '/'
     }
     // {
     //   path: '/documentation',

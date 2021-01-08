@@ -87,13 +87,82 @@
               </div>
             </vs-popup>
           </div>
-          <a href="https://github.com/lusaxweb/vuesax/releases/download/v3.8.61/vuesax-3.8.61.zip" class="btn-download">
-            <i class="vs-icon notranslate icon-scale material-icons null">face</i><span>Log in</span></a>
-          <a href="https://github.com/lusaxweb/vuesax/releases/download/v3.8.61/vuesax-3.8.61.zip" class="btn-download">
-            <i class="vs-icon notranslate icon-scale material-icons null">link</i><span>Sing up</span></a>
+          <vs-dropdown vs-custom-content vs-trigger-click  style="cursor:pointer" v-if="!loggedUser">
+            <a class="a-icon" href.prevent style="cursor:pointer">
+              <i class="vs-icon notranslate icon-scale material-icons null">face</i><span style="cursor:pointer">Log in</span>
+            </a>
+
+            <vs-dropdown-menu class="loginx">
+              <h3>Login</h3>
+              <p>Welcome to shop, add your account to enter</p>
+
+              <vs-input
+                :valid.sync="valid.email"
+                success-text="Correo Valido"
+                danger-text="The email does not meet the requirements"
+                type="email" label-placeholder="Email" v-model="value1"/>
+
+              <vs-input
+                :valid.sync="valid.password"
+                success-text="Password Valida"
+                danger-text="The password must have at least 8 characters, 1 number, 1 special character"
+                type="password"
+                label-placeholder="Password" v-model="value2"/>
+
+              <vs-button width="100%" color="success" type="gradient" @click="loginUser()">Login</vs-button>
+            </vs-dropdown-menu>
+          </vs-dropdown>
+          <!--<a href="https://github.com" class="btn-download">-->
+            <!--<i class="vs-icon notranslate icon-scale material-icons null">face</i><span>Log in</span>-->
+          <!--</a>-->
+          <!--<a href="https://github.com" class="btn-download">-->
+            <!--<i class="vs-icon notranslate icon-scale material-icons null">link</i><span>Sing up</span>-->
+          <!--</a>-->
+          <vs-dropdown vs-custom-content vs-trigger-click  style="cursor:pointer" v-if="!loggedUser">
+            <a class="a-icon" href.prevent style="cursor:pointer">
+              <i class="vs-icon notranslate icon-scale material-icons null">link</i><span>Sing up</span>
+            </a>
+
+            <vs-dropdown-menu class="loginx">
+              <h3>Singup</h3>
+              <p>Welcome to shop, add your account to enter</p>
+
+              <vs-input
+                :valid.sync="valid.email"
+                success-text="Correo Valido"
+                danger-text="The email does not meet the requirements"
+                type="email" label-placeholder="Email" v-model="valid.email"/>
+
+              <vs-input
+                :valid.sync="valid.password"
+                success-text="Password Valida"
+                danger-text="The password must have at least 8 characters, 1 number, 1 special character"
+                type="password"
+                label-placeholder="Password" v-model="valid.password"/>
+
+              <vs-button width="100%" color="success" type="gradient" @click="$vs.notify({title:'Danger',text:'Contact author',color:'danger'})">Singup</vs-button>
+            </vs-dropdown-menu>
+          </vs-dropdown>
           <!--<vs-input v-bind:onclick="myFilter" color="rgb(91, 60, 196)"  icon="search" placeholder=""/>-->
-          <a title="Liên hệ" href="https://github.com/lusaxweb/vuesax" target="_blank" rel="noopener noreferrer" class="repo-link flaticon-facebook"></a>
-          <a target="_blank" title="@vuesax" href="https://twitter.com/vuesax"><i class="vs-icon notranslate icon-scale flaticon-github twitterx material-icons null"></i></a>
+          <a title="Liên hệ" href="https://github.com" target="_blank" rel="noopener noreferrer" class="repo-link flaticon-facebook" v-if="!loggedUser"></a>
+          <a target="_blank" title="@vuesax" href="https://twitter.com"><i class="vs-icon notranslate icon-scale flaticon-github twitterx material-icons null" v-if="!loggedUser"></i></a>
+          <vs-dropdown >
+            <a class="a-icon" href="#">
+              <vs-avatar v-if="loggedUser" src="https://avatars2.githubusercontent.com/u/31676496?s=460&v=4"/>
+            </a>
+
+            <vs-dropdown-menu>
+              <vs-dropdown-item>
+                Settings
+              </vs-dropdown-item>
+              <vs-dropdown-item>
+                Invoice
+              </vs-dropdown-item>
+              <vs-dropdown-item divider>
+                <p style="color: red">Logout</p>
+              </vs-dropdown-item>
+            </vs-dropdown-menu>
+          </vs-dropdown>
         </div>
       </header>
       <div class="sidebar">
@@ -236,27 +305,38 @@
                       </template>
                     </vs-list-item>
                   </div>
-                  <!--<vs-list-item title="Abrams 8 PC Rectangular Dining" subtitle="1000 000$">-->
-                    <!--<template slot="avatar" style="border-radius: 10px;">-->
-                      <!--&lt;!&ndash;<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>&ndash;&gt;-->
-                      <!--<img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="75">-->
-                    <!--</template>-->
-                  <!--</vs-list-item>-->
-                  <!--<vs-list-item title="Abrams 8 PC" subtitle="2000 000$">-->
-                    <!--<template slot="avatar" style="border-radius: 10px;">-->
-                      <!--&lt;!&ndash;<vs-avatar size="70px" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg"/>&ndash;&gt;-->
-                      <!--<img style="border-radius: 10px;" src="https://miro.medium.com/max/1000/1*vvxcLmBVV6v7iwzlTPIE4Q.jpeg" alt="Girl in a jacket" width="100" height="75">-->
-                    <!--</template>-->
-                  <!--</vs-list-item>-->
                   <div>
                     <vs-avatar color="primary" text="1"/>
                     <vs-avatar color="primary" text="2"/>
                     <vs-avatar color="primary" text="3"/>
                   </div>
                   <div style="position: fixed; bottom: 0px; right: 0px">
-                    <vs-alert color="danger" icon="new_releases" >
-                      <span>Admin <b>!</b></span>
-                    </vs-alert>
+                    <vs-dropdown vs-custom-content vs-trigger-click  style="cursor:pointer">
+                      <a class="a-icon" href.prevent style="cursor:pointer">
+                        <vs-alert color="danger" icon="new_releases" >
+                          <span>Admin <b>!</b></span>
+                        </vs-alert>
+                      </a>
+
+                      <vs-dropdown-menu class="loginx">
+                        <h3>Login</h3>
+                        <p>Welcome to admin dashboad</p>
+
+                        <vs-input
+                          success-text="Correo Valido"
+                          danger-text="The email does not meet the requirements"
+                          type="email" label-placeholder="Email" v-model="emailAdmin"/>
+
+                        <vs-input
+                          success-text="Password Valida"
+                          danger-text="The password must have at least 8 characters, 1 number, 1 special character"
+                          type="password"
+                          label-placeholder="Password" v-model="passAdmin"/>
+
+                        <vs-button width="100%" color="success" type="gradient" @click="loginAdmin">Login</vs-button>
+                      </vs-dropdown-menu>
+                    </vs-dropdown>
+
                   </div>
                   <!--<div>-->
                     <!--<div>-->
@@ -407,7 +487,16 @@ export default {
       available_item: true,
       currentx: 3,
       ViewSelect: true,
-      popupActivo: false
+      popupActivo: false,
+      value1: 'admin',
+      value2: 'admin',
+      valid: {
+        email: 'admin',
+        password: 'admin'
+      },
+      loggedUser: false,
+      emailAdmin: 'admin',
+      passAdmin: 'admin'
     }
   },
   mounted () {
@@ -503,6 +592,35 @@ export default {
     },
     remove_filter (item) {
       this.filter.splice(this.filter.indexOf(item), 1)
+    },
+    loginUser () {
+      console.log('dmdmdmd')
+      console.log(this.valid)
+      if (this.value1 === 'admin' && this.value2 === 'admin') {
+        console.log('vlc')
+        this.loggedUser = true
+      } else {
+        this.$vs.notify({
+          title: 'Fail',
+          text: 'Lorem ipsum dolor sit amet, consectetur',
+          color: 'danger'
+        })
+      }
+    },
+    loginAdmin () {
+      console.log('dmdmdmd')
+      console.log(this.valid)
+      if (this.emailAdmin === 'admin' && this.passAdmin === 'admin') {
+        console.log('anh chi la ke ngoc')
+        // this.$router.push({ path: 'dashboad' })
+        this.$router.push({ path: `/admin/dashboard` })
+      } else {
+        this.$vs.notify({
+          title: 'Fail',
+          text: 'Lorem ipsum dolor sit amet, consectetur',
+          color: 'danger'
+        })
+      }
     }
   }
 }

@@ -65,8 +65,8 @@
     <!--</vs-navbar>-->
 
   <!--</header>-->
-  <div style="top: 0px; position: fixed; width: 100%; padding-left: 260px; z-index: 10000">
-    <vs-navbar class="topnavbar" v-model="activeItem" style="height: 60px; max-height: 60px">
+  <div style="top: 0px; position: fixed; width: 100%; padding-left: 260px; z-index: 1000000">
+    <vs-navbar class="topnavbar" v-model="activeItem" style="height: 60px; max-height: 60px; z-index: 1000000">
       <div slot="title">
         <vs-navbar-title>
           <!--Hello world-->

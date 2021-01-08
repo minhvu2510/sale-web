@@ -2,7 +2,7 @@
  <div style="padding-left: 265px; padding-top: 40px;padding-right: 10px">
   <States/>
  <vs-row vs-type="flex" vs-justify="space-between" vs-w="12">
-    <vs-col type="flex" vs-justify="center" vs-align="center" vs-lg="8" vs-sm="6" vs-xs="12" code-toggler>
+    <vs-col type="flex" vs-justify="center" vs-align="center" vs-lg="12" vs-sm="6" vs-xs="12" code-toggler>
       <vs-card class="cardx">
         <div slot="header">
           <h4>
@@ -14,7 +14,7 @@
         </div>
       </vs-card>
     </vs-col>
-    <vs-col type="flex" vs-justify="center" vs-align="center" vs-sm="6" vs-lg="3" vs-xs="12">
+    <vs-col type="flex" vs-justify="center" vs-align="center" vs-sm="6" vs-lg="12" vs-xs="12">
       <vs-card class="cardx">
         <div slot="header">
           <h4>
